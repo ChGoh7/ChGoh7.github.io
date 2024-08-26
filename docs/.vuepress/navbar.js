@@ -34,8 +34,8 @@ export default defineNavbarConfig(
                 { text: '我的工具', link: 'MyTools/' }
             ]
         }, {
-            text: '其他',
-            link: '/Others/'
+            text: '友链',
+            link: '/Friends/'
         },
         ],
         'en-navbar': [

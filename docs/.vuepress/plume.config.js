@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:44:40
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-08-26 18:05:15
+ * @LastEditTime: 2024-08-26 19:26:25
  * @FilePath: \it-docs\docs\.vuepress\plume.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -21,20 +21,26 @@ const javaEENote = {
     link: 'notes/JavaEE/', // 声明笔记的链接前缀
     sidebar: 'auto'
 }
+const DevOpsNote = {
+    text: '开发|运营工具',
+    dir: 'DevOps/',
+    link: 'notes/DevOps/',
+    sidebar: 'auto'
+}
 
 export default defineThemeConfig({
     // 在这里配置主题
     profile: {
         name: 'chwoo7',
         description: 'A programmer',
-        avatar: '/blogger.png',
-        circle: true, // 是否为圆形头像
+        avatar: '/images/avatar1.jpg',
+        circle: false, // 是否为圆形头像
     },
     notes: {
         dir: '/notes/', // 声明所有笔记的目录
         link: '/', // 声明所有笔记默认的链接前缀， 默认为 '/'
         notes: [
-            javaSENote, javaEENote
+            javaSENote, javaEENote, DevOpsNote
         ]
     },
     navbar: navbar['zh-navbar']
