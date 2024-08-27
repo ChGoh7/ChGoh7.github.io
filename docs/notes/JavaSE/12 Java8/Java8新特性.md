@@ -75,7 +75,7 @@ permalink: /notes/JavaSE/dt40wstr/
 
 ### 使用流
 
-[![中间操作和终端操作](/Java8新特性.assets/c9c7b6916647fa6f6d80f1b59230886f.png)](https://sdky.gitee.io/img/中间操作和终端操作.png)
+[![中间操作和终端操作](Java8新特性.assets/c9c7b6916647fa6f6d80f1b59230886f.png)](https://sdky.gitee.io/img/中间操作和终端操作.png)
 图 1 中间操作和终端操作
 
 #### 筛选
@@ -103,7 +103,7 @@ list.stream().filter(distinctByKey(b -> b.getName()));
 * `Stream<R> map(Function<T, R> mapper)`：对流中每一个元素应用函数（元素映射为新元素）
 * `Stream<R> flatMap(Function<T, Stream<R>> mapper)`：把一个流中的每个元素都换成另一个**流**，然后把所有转换的流**连接**起来成为一个流（流的扁平化）（元素映射为流）
 
-* [![Java_8_flatMap_example](/Java8新特性.assets/21a832b07b34bfece792116ff0cfc805.jpeg)](https://sdky.gitee.io/img/Java_8_flatMap_example.jpg)
+* [![Java_8_flatMap_example](Java8新特性.assets/21a832b07b34bfece792116ff0cfc805.jpeg)](https://sdky.gitee.io/img/Java_8_flatMap_example.jpg)
 	图 2 Java_8_flatMap_example
 
 #### 查找和匹配
@@ -220,7 +220,7 @@ Map<String, Map<String, Summary>> sumMap = stuList.stream()
 	* `Collector<T, ?, C> toCollection(Supplier<C> collectionFactory)`：把流中所有项目收集到给定的供应源创建的集合
 	* `Collector<T, A, RR> collectingAndThen(Collector<T, A, R> downstream, Function<R, RR> finisher)`：**包裹另一个收集器**，对其结果应用转换函数 finisher **把收集器的结果转换为另一种类型**
 	* `Collector<T, ?, R> mapping(Function<T, U> mapper, Collector<U, A, R> downstream)`：mapper 对流中的元素做变换，downstream 将变换的结果对象收集起来
-		[![Collectors类中的静态工厂方法](/Java8新特性.assets/2c404902b2d051ab0fa778a5c356ec0b.png)](https://sdky.gitee.io/img/Collectors类中的静态工厂方法.png)
+		[![Collectors类中的静态工厂方法](Java8新特性.assets/2c404902b2d051ab0fa778a5c356ec0b.png)](https://sdky.gitee.io/img/Collectors类中的静态工厂方法.png)
 		图 3 Collectors类中的静态工厂方法
 
 
@@ -405,10 +405,10 @@ ZonedDateTime zdt2 = dateTime.atZone(zoneId);
 ZonedDateTime zdt3 = instant.atZone(zoneId);
 ```
 
-[![表示时间点的日期-时间类的通用方法](/Java8新特性.assets/2807f9a7719a34fe94f6df47511e1e97.png)](https://sdky.gitee.io/img/表示时间点的日期-时间类的通用方法.png)
+[![表示时间点的日期-时间类的通用方法](Java8新特性.assets/2807f9a7719a34fe94f6df47511e1e97.png)](https://sdky.gitee.io/img/表示时间点的日期-时间类的通用方法.png)
 图 4 表示时间点的日期-时间类的通用方法
 
-[![日期-时间类中表示时间间隔的通用方法](/Java8新特性.assets/77e8e3624ab918b5e87a2f74c5c6942d.png)](https://sdky.gitee.io/img/日期-时间类中表示时间间隔的通用方法.png)
+[![日期-时间类中表示时间间隔的通用方法](Java8新特性.assets/77e8e3624ab918b5e87a2f74c5c6942d.png)](https://sdky.gitee.io/img/日期-时间类中表示时间间隔的通用方法.png)
 图 5 日期-时间类中表示时间间隔的通用方法
 
 * TemporalAdjusters 工厂类中返回 TemporalAdjuster（调整器）实例的静态方法
@@ -428,7 +428,7 @@ ZonedDateTime zdt3 = instant.atZone(zoneId);
 	* `previousOrSame(DayOfWeek dayOfWeek)`：在当前日期之后第一个符合指定星期几要求的日期，如果当前日期已经符合要求，直接返回该对象
 	* `nextOrSame(DayOfWeek dayOfWeek)`：在当前日期之后第一个符合指定星期几要求的日期，如果当前日期已经符合要求，直接返回该对象
 
-	[![DateTimeFormatter_Predefined_Formatters](/Java8新特性.assets/9c6ecd2698fcfb5bd6428598b3c23e98.png)](https://sdky.gitee.io/img/DateTimeFormatter_Predefined_Formatters.png)
+	[![DateTimeFormatter_Predefined_Formatters](Java8新特性.assets/9c6ecd2698fcfb5bd6428598b3c23e98.png)](https://sdky.gitee.io/img/DateTimeFormatter_Predefined_Formatters.png)
 	图 6 DateTimeFormatter_Predefined_Formatters
 
 ## Base64
