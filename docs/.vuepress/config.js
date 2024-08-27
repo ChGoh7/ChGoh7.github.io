@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-08-27 00:39:37
+ * @LastEditTime: 2024-08-27 15:12:46
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -12,8 +12,11 @@ import { plumeTheme } from 'vuepress-theme-plume'
 // import { webpackBundler } from '@vuepress/bundler-webpack'
 
 export default defineUserConfig({
+    title: 'chgoh7的文档&blog',
+    head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
     lang: 'zh-CN',
     base: '/',
     theme: plumeTheme(),
     bundler: viteBundler(),
+    description: 'chgoh7的文档&blog，记录知识文档和日常博客',
 })

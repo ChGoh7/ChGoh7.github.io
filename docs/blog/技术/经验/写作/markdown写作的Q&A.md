@@ -18,12 +18,14 @@ tags:
 
 ## 图片Q&A
 
-![image-20240827140619861](markdown写作的Q&A.assets/image-20240827140619861.png)
+我在Typora中配置图片设置的是图片粘贴时自动存放到{filename}.assets文件夹的规则，在本地的路径是呈现`![图片]({filename}.assets/image.png)`的相对路径
 
-在typora配置图片设置是图片粘贴时自动存放到{filename}.assets文件夹的规则，在本地的路径是呈现`![图片]({filename}.assets/image.png)`的相对路径，如果有以下的需求：
+如果有以下的需求，可以在该路径的基础上加上`/`引用全局静态资源
+
+例如：`![图片]({filename}.assets/image.png)`  => `![图片](/{filename}.assets/image.png)`
 
 * 你可能需要提供一些静态资源，但是它们并不直接被你的 Markdown 文件引用，比如 favicon 和 PWA 图标。
 * 你可能想要托管一些共享的静态资源，甚至可能需要在你的网站外部引用它，比如 Logo 图片。
 * 你可能想在你的 Markdown 内容中通过绝对路径来引入图片。
 
-> vuepress的静态资源一般放在.vuepress/public下，这样构建项目生成网站的时候会自动放在引用它的文件附近，这时需要额外地在原本的相对路径前加上`/`(全局的静态资源路径，详见[静态资源](https://v2.vuepress.vuejs.org/zh/guide/assets.html)),`![图片]({filename}.assets/image.png)`  => `![图片](/{filename}.assets/image.png)`
+> vuepress的静态资源一般放在.vuepress/public下，这样构建项目生成网站的时候会自动放在引用它的文件附近，这时需要额外地在原本的相对路径前加上`/`(默认是vuepress的全局静态资源路径，详见[静态资源](https://v2.vuepress.vuejs.org/zh/guide/assets.html))。
