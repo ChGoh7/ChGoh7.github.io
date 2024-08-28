@@ -1,0 +1,57 @@
+::: card title="What’s the difference between a “healthy” INFJ and an “unhealthy” INFJ?" icon="twemoji:question"
+
+https://qr.ae/p2KKkh
+
+:::
+
+## What’s the difference between a “healthy” INFJ and an “unhealthy” INFJ?
+
+Dear Unhealthy INFJ,
+
+These are the things that I wish I knew 20 years ago, to save decades of suffering and frustration. Simply knowing them, though, isn't enough; they need to be accepted and worked on. INFJ Health comes in the form of wisdom, and wisdom stems from trial and error. I'm writing to let you know what you need to keep trying and failing at.
+
+------
+
+**A Healthy INFJ is comfortable asserting themself, politely.**
+
+Yes you are among the most empathetic types, but that doesn’t mean that you always need to surrender to others’ feelings. Understand that your needs and feelings matter just as much as anyone else’s. Set your own goals and establish your own boundaries. Don’t live someone else’s life because you’ve accepted their feelings as your own or deem them more important.
+
+*How you’ll work on this*: Tell others what you want, what you need, and how you feel. Start small: Tell a close friend that you are feeling down today, or that you'd rather grab coffee than see a movie. Gradually work your way to bigger, more impactful reveals, like telling your partner that you feel misunderstood or letting your boss know that you want a raise or want to help with a project that interests you. Politeness is key, as it’s the true sign of maturity here. Telling others what you want and how you feel is deceptively easy when it’s done drunk or mid-temper tantrum.
+
+**A Healthy INFJ is Flawed, and is OK letting others see that.**
+
+As an INFJ you are naturally insecure about the experience that you are giving others, i.e. how they’ll perceive you. This manifests itself as severe performance anxiety, being unwilling to share your work/art, and being overly concerned about your appearance. A healthy INFJ has worked hard to overcome this insecurity. She still works hard to deliver a good experience, but she isn’t consumed by others’ reaction. She’ll accept less than perfect. Trying to be perfect for others will make you miserable, stressed, and afraid. Counterintuitively, striving for perfection is more than likely the #1 thing holding you back from true happiness and your goals in general.
+
+*How you’ll work on this*: Reveal yourself. Start small and show someone close something that you're working on (i.e., not done and perfected, still in progress!). Work your way up to a blog or answer questions here are Quora, to let others into your life a bit - to share your thinking. Start a YouTube channel where you're performing alone to a camera, but -hey - it's still a performance.
+
+**A Healthy INFJ has overcome their paranoia that other people are against her.**
+
+As an INFJ you are naturally inclined to fear the intentions of others: Your boyfriend is cheating on you, your friends are deliberately leaving you out, your coworkers are trying to steal credit that you've earned. Almost 100% of the time these ruminations are just fictions, and a healthy INFJ understands this. She sees that others may not be as careful with her feelings as she is with theirs, but that’s not because they're being malicious. It’s because other people are simply not wired to understand and care for feelings the way that an INFJ is.
+
+*How you’ll work on this:* Be mature about understanding others’ intentions. Don’t uncover their intentions by reading their phones, or by reading the tea leaves of their Facebook posts. Don't assume intentions, because you simply don't know. You need to learn to sit down and ask them directly: “Hey, I’m really into you, and I can get kind of paranoid sometimes. Are we OK or is there something you want to tell me?” Accept what they tell you until you have a real reason to believe otherwise, or if things feel really off (use your Fe barometer).
+
+**A Healthy INFJ understands shades of gray.**
+
+As an INFJ you are prone to judging good vs. bad in yourself and in others, particularly when you are stressed. There are simple equations for the results of this, and they're true for an INFJ almost every time.
+
+Criticism of Self + Stress = Feeling worthless
+
+Criticism of Others + Stress = Feeling Self-righteous
+
+You do not want to feel worthless or self-righteous, because they're both annoying. You must strive to maintain nuanced perspective and openness to others. Nothing and nobody is either all bad or all good.
+
+*How you’ll work on this*: Don't make snap judgements when you're stressed. Try not to be critical of anything when you are stressed. Instead, make a mental or real note (time in your calendar) to be critical later when the stress has passed. One of two things will happen: You'll drop it altogether, or you'll find good qualities alongside the bad in whatever you’re criticizing.
+
+**A Healthy INFJ has chosen a direction.**
+
+As an INFJ you are likely a full-time dabbler. You like to learn new things and bounce from topic to topic. While this can be a good thing, as it powers your uber-powerful intuition with more data points, it can result in you drifting aimlessly, which is a problem for many INFJs. We lack the stamina to stick to any one thing for long. By not choosing a direction, though, the choice will be made for you: You’ll excel in no particular area, and you'll hardly make an impact. You will find yourself 10-20 years down the road with a loose bag of skills and trivia that hardly can be considered a purpose or even a vocation, and you'll feel a crisis of identity.
+
+*How you’ll work on this*: Pick a direction. Start with something that interests you, or that you have some skill in. Then Fail. Try and fail over and over and course correct as necessary. Through trial and error you will eventually find something that excites you enough and is meaningful enough to pursue for the long run. This doesn’t mean you can’t change paths later on, and — by all means — please continue to dabble and build that intuitive database. But pick a direction. It’s imperative that you actually take action though; it’s not enough to sit and ponder what you want until it hits you, because you’ll get stuck in Ni-Ti loops for days (analysis paralysis).
+
+------
+
+As an INFJ you’re already prone to improving yourself in every way imaginable. Amid all the new diets and self-improvement programs you try, be sure to work on these few things, specifically. The rest will work itself out. It’s the 80/20 principle for INFJs in action.
+
+Start today, and work on them in small ways every day. Try, and be willing to fail. In 2-3 years you will have made great progress and gained great wisdom, because you are surgically removing the weaknesses that would have stunted your growth.
+
+Best of luck. Starting out as an INFJ isn't easy, but the struggle is worth it.
