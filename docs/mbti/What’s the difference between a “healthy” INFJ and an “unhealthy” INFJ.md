@@ -1,4 +1,9 @@
-::: card title="What’s the difference between a “healthy” INFJ and an “unhealthy” INFJ?" icon="twemoji:question"
+---
+title: What’s the difference between a “healthy” INFJ and an “unhealthy” INFJ
+createTime: 2024/08/28 21:02:27
+permalink: /article/66yb19o4/
+---
+::: card title="What’s the difference between a “healthy” INFJ and an “unhealthy” INFJ?" icon="twemoji: question"
 
 https://qr.ae/p2KKkh
 
