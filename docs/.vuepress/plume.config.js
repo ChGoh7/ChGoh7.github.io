@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:44:40
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-08-26 19:26:25
+ * @LastEditTime: 2024-08-28 12:55:20
  * @FilePath: \it-docs\docs\.vuepress\plume.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -29,12 +29,13 @@ const DevOpsNote = {
 }
 
 export default defineThemeConfig({
+    logo: '/images/logo.png',
     // 在这里配置主题
     profile: {
         name: 'chwoo7',
         description: 'A programmer',
         avatar: '/images/avatar1.jpg',
-        circle: false, // 是否为圆形头像
+        circle: true, // 是否为圆形头像
     },
     notes: {
         dir: '/notes/', // 声明所有笔记的目录
@@ -43,5 +44,9 @@ export default defineThemeConfig({
             javaSENote, javaEENote, DevOpsNote
         ]
     },
-    navbar: navbar['zh-navbar']
+    navbar: navbar['zh-navbar'],
+    docsRepo: 'https://github.com/ChGoh7/ChGoh7.github.io',
+    docsBranch: 'docs',
+    docsDir: 'docs',
+    editLinkPattern: ':repo/-/edit/:branch/:path',
 })
