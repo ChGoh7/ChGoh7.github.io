@@ -1,5 +1,5 @@
 ---
-title: 基础知识
+title: MBT-16 种人格类型与8个认知功能
 createTime: 2024/08/28 12:35:59
 permalink: /article/7ov35416/ 
 tags:
@@ -69,7 +69,7 @@ MBTI 体系将所有人格分成 16 种类型：
 
 这 8 个认知功能是按照这样的方式分类的：
 
-[![img](./基础知识.assets/8-个认知功能.png)](https://www.lucaluo.com/wp-content/uploads/2020/05/8-个认知功能.png)
+[![img](./MBTI-16种人格类型与8个认知功能点.assets/8-个认知功能.png)](https://www.lucaluo.com/wp-content/uploads/2020/05/8-个认知功能.png)
 
 可以看到，在最宏观的层面上，它们分为 Perceiving 与 Judging 这两类。
 
@@ -81,7 +81,7 @@ MBTI 体系将所有人格分成 16 种类型：
 
 其实，每个类型都拥有这 8 个功能，区别只在于顺序不同：
 
-[![img](./基础知识.assets/image-2.png)](https://www.lucaluo.com/wp-content/uploads/2020/04/image-2.png)
+[![img](./MBTI-16种人格类型与8个认知功能点.assets/image-2.png)](https://www.lucaluo.com/wp-content/uploads/2020/04/image-2.png)
 
 可以看到，这 8 个功能的排列顺序（特别注意前两列「强功能」），决定了你的类型。那么顺序代表着什么呢？ —— 功能熟练度。
 
@@ -89,7 +89,7 @@ MBTI 体系将所有人格分成 16 种类型：
 
 关于熟练度，我比较喜欢引用 [PersonalityHacker 的 Car Model](https://personalityhacker.com/personality-development-tools-the-car-diagram/) 来解释：
 
-[![img](./基础知识.assets/car-model-883x1024.jpg)](https://www.lucaluo.com/wp-content/uploads/2020/04/car-model.jpg)
+[![img](./MBTI-16种人格类型与8个认知功能点.assets/car-model-883x1024.jpg)](https://www.lucaluo.com/wp-content/uploads/2020/04/car-model.jpg)
 
 Car Model 将你的认知模型，类比成一辆 4 座小轿车：
 
@@ -256,7 +256,7 @@ S / N 的分别，是我觉得 MBTI 这套系统里最容易被感知到的差�
 
 ### 小结
 
-好了，关于 MBTI 的基础知识点，我们就介绍到这里，相信大家对 MBTI 的系统已经有相当不错的基础理解了。
+好了，关于 MBTI 的基础知识，我们就介绍到这里，相信大家对 MBTI 的系统已经有相当不错的基础理解了。
 
 在后续的文章中，我会和大家继续分享更多 MBTI 的实践与价值。
 
