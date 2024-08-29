@@ -57,6 +57,8 @@ export default defineThemeConfig({
             repoId: 'R_kgDOMpwR7A',
             category: 'General',
             categoryId: 'DIC_kwDOMpwR7M4CiBWo',
+            darkTheme: 'GitHub Dark',
+            lightTheme: 'GitHub Light'
         }
     }
 })
