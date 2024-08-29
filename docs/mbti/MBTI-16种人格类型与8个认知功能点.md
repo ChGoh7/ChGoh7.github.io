@@ -5,6 +5,7 @@ permalink: /article/7ov35416/
 tags:
   - mbti
   - 心理学
+comment: true
 ---
 
 > 该文引自 [不可解的Luca](https://www.lucaluo.com/mbti-introduction/)，如有侵权，请联系我进行删除
