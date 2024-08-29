@@ -17,15 +17,17 @@ export default defineUserConfig({
     lang: 'zh-CN',
     base: '/',
     theme: plumeTheme({
-        comment: {
-            provider: 'Giscus', // "Artalk“ | "Giscus" | "Twikoo" | "Waline"
-            comment: true,
-            repo: 'ChGoh7/ChGoh7.github.io',
-            repoId: 'R_kgDOMoXr5A',
-            category: 'General',
-            categoryId: 'DIC_kwDOMoXr5M4CiBdm',
-            darkTheme: 'dark',
-            lightTheme: 'light'
+        plugins: {
+            comment: {
+                provider: 'Giscus', // "Artalk“ | "Giscus" | "Twikoo" | "Waline"
+                comment: true,
+                repo: 'ChGoh7/ChGoh7.github.io',
+                repoId: 'R_kgDOMoXr5A',
+                category: 'General',
+                categoryId: 'DIC_kwDOMoXr5M4CiBdm',
+                darkTheme: 'dark',
+                lightTheme: 'light'
+            }
         }
     }),
     bundler: viteBundler(),
