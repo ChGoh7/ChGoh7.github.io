@@ -16,8 +16,18 @@ export default defineUserConfig({
     head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
     lang: 'zh-CN',
     base: '/',
-    theme: plumeTheme(),
+    theme: plumeTheme({
+        comment: {
+            provider: 'Giscus', // "Artalk“ | "Giscus" | "Twikoo" | "Waline"
+            comment: true,
+            repo: 'ChGoh7/ChGoh7.github.io',
+            repoId: 'R_kgDOMoXr5A',
+            category: 'General',
+            categoryId: 'DIC_kwDOMoXr5M4CiBdm',
+            darkTheme: 'dark',
+            lightTheme: 'light'
+        }
+    }),
     bundler: viteBundler(),
     description: 'chgoh7的文档&blog，记录知识文档和日常博客',
-
 })
