@@ -53,10 +53,10 @@ export default defineThemeConfig({
         comment: {
             provider: 'Giscus', // "Artalk“ | "Giscus" | "Twikoo" | "Waline"
             comment: true,
-            repo: 'ChGoh7/it-docs-comment',
-            repoId: 'R_kgDOMpwR7A',
+            repo: 'ChGoh7/ChGoh7.github.io',
+            repoId: 'R_kgDOMoXr5A',
             category: 'General',
-            categoryId: 'DIC_kwDOMpwR7M4CiBWo',
+            categoryId: 'DIC_kwDOMoXr5M4CiBdm',
             darkTheme: 'dark',
             lightTheme: 'light'
         }
