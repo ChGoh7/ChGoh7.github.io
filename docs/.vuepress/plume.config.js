@@ -49,16 +49,4 @@ export default defineThemeConfig({
     docsBranch: 'docs',
     docsDir: 'docs',
     editLinkPattern: ':repo/edit/:branch/:path',
-    plugins: {
-        comment: {
-            provider: 'Giscus', // "Artalk“ | "Giscus" | "Twikoo" | "Waline"
-            comment: true,
-            repo: 'ChGoh7/ChGoh7.github.io',
-            repoId: 'R_kgDOMoXr5A',
-            category: 'General',
-            categoryId: 'DIC_kwDOMoXr5M4CiBdm',
-            darkTheme: 'dark',
-            lightTheme: 'light'
-        }
-    }
 })
