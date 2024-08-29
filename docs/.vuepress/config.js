@@ -9,7 +9,7 @@
 import { defineUserConfig } from 'vuepress/cli'
 import { viteBundler } from '@vuepress/bundler-vite'
 import { plumeTheme } from 'vuepress-theme-plume'
-import { commentPlugin } from '@vuepress/plugin-comment'
+import { commentPlugin } from 'vuepress-theme-plume'
 // import { webpackBundler } from '@vuepress/bundler-webpack'
 
 export default defineUserConfig({
@@ -20,26 +20,5 @@ export default defineUserConfig({
     theme: plumeTheme(),
     bundler: viteBundler(),
     description: 'chgoh7的文档&blog，记录知识文档和日常博客',
-    // {
-    //         provider: 'Giscus', // "Artalk“ | "Giscus" | "Twikoo" | "Waline"
-    //         comment: true,
-    //         repo: 'ChGoh7/ChGoh7.github.io',
-    //         repoId: 'R_kgDOMoXr5A',
-    //         category: 'General',
-    //         categoryId: 'DIC_kwDOMoXr5M4CiBdm',
-    //         darkTheme: 'dark',
-    //         lightTheme: 'light'
-    //     }
-    plugins: [
-        commentPlugin({
-            provider: 'Giscus', // "Artalk“ | "Giscus" | "Twikoo" | "Waline"
-            comment: true,
-            repo: 'ChGoh7/ChGoh7.github.io',
-            repoId: 'R_kgDOMoXr5A',
-            category: 'General',
-            categoryId: 'DIC_kwDOMoXr5M4CiBdm',
-            darkTheme: 'dark',
-            lightTheme: 'light'
-        }),
-    ],
+
 })
