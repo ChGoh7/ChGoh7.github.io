@@ -30,6 +30,10 @@ tags:
 
 > vuepress的静态资源一般放在.vuepress/public下，这样构建项目生成网站的时候会自动放在引用它的文件附近，这时需要额外地在原本的相对路径前加上`/`(默认是vuepress的全局静态资源路径，详见[静态资源](https://v2.vuepress.vuejs.org/zh/guide/assets.html))。
 
+> [!CAUTION]
+>
+> 注意，在一些编辑器的配置中最好设置为粘贴图片带上`./`，呈现`./xxx.png`的相对路径，而不是`xxx.png`这样无前置的相对路径符号的路径，如果在markdown中`![]()`被意外转换成了`<img>`的html标签或者手动嵌入`<img>`格式的标签，就会导致图片无法正常显示。
+
 ## 文本引用块
 
 markdown语法本身默认支持如下的渲染
