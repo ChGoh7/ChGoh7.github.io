@@ -2,6 +2,9 @@
 title: vuepress-plume主题注意事项
 createTime: 2024/08/30 17:42:02
 permalink: /article/r3ymvj3m/
+tags:
+  - 博客FAQ
+sticky: 999
 ---
 
 
@@ -55,3 +58,4 @@ export default defineThemeConfig({
 博客的目录生成貌似有bug，比如我想弄个日记分类的博客:
 目录结构为Dailydiary/2024/8/xxxx.md，在分类展示里中2024显示成了Dailydiary/4/8/xxxx.md
 改为Dailydiary/2024年/8/xxxx.md，显示Dailydiary/年/8/xxxx.md
+
