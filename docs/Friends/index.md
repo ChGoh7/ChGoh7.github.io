@@ -1,5 +1,3 @@
 ---
 pageLayout: friends
 ---
-
-> to do …
