@@ -3,8 +3,8 @@
     "@vuepress/bundler-vite": "^2.0.0-rc.7",
     "@vuepress/theme-default": "^1.9.10",
     "vue": "^3.4.0",
-    "vuepress": "^2.0.0-rc.14",
-    "vuepress-theme-plume": "^1.0.0-rc.88"
+    "vuepress": "^2.0.0-rc.15",
+    "vuepress-theme-plume": "^1.0.0-rc.93"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",

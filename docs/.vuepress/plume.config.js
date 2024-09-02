@@ -60,6 +60,8 @@ export default defineThemeConfig({
             javaSENote, javaEENote, MicroservicesNote, DevOpsNote, ProjectNote
         ]
     },
+    //标题展示深度
+    outline: 'deep',
     docsRepo: 'https://github.com/ChGoh7/ChGoh7.github.io',
     docsBranch: 'docs',
     docsDir: 'docs',
