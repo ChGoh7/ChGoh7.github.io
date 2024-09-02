@@ -18,7 +18,7 @@ export default defineNavbarConfig(
             icon: 'icomoon-free:blog',
             link: '/blog/'
         }, {
-            text: '文档库',
+            text: '我的文档库',
             icon: 'gala:file-document',
             prefix: '/notes/',
             items: [
@@ -41,6 +41,11 @@ export default defineNavbarConfig(
                     ]
                 }
             ]
+        },
+        {
+            text: '互联网文档',
+            icon: 'mdi:web',
+            link: '/Webdocs/'
         },
         {
             text: '探索',
