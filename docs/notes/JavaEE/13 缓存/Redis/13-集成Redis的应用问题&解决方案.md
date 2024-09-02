@@ -187,25 +187,11 @@ setnx 可以理解是上锁/加锁指令，key 是锁的键，value 是锁的值
 
 就是删除 key, 可以理解成就是释放锁
 
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902155359315.png" alt="image-20240902155359315" style="zoom:150%;" align="left"/>
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902155359315.png" alt="image-20240902155359315" style="zoom:150%;" />
 可以看到，设置了lock:1这把锁，如果不进行删除就会导致后面的重新设置这个值的操作失败
 
-
-
-
-
-
-
-
-
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902155848971.png" alt="image-20240902155848971" style="zoom:150%;" align="left"/>
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902155848971.png" alt="image-20240902155848971" style="zoom:150%;" />
 可以看到删除该键后（相当于释放锁）又可以重新设置这个键值
-
-
-
-
-
-
 
 3. 指令: `expire key seconds`
 
@@ -279,7 +265,7 @@ public viod testLock(){
 
 > 192.168.198.1 是 linux 访问本机的地址
 
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902162804943.png" alt="image-20240902162804943" style="zoom:150%;" align="left" />
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902162804943.png" alt="image-20240902162804943" style="zoom:150%;" />
 
 > [!CAUTION]
 > 以上代码容易造成死锁的产生
@@ -307,13 +293,15 @@ Boolean lock = redisTemplate.opsForValue().setIfAbsent("lock", "ok", 3, TimeUnit
 
 `ab -n 1000 -c 100 http://192.168.198.1:8080/redisTest/testLock`
 
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902163436763.png" alt="image-20240902163436763" style="zoom:150%;" align="left"/>
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902163436763.png" alt="image-20240902163436763" style="zoom:150%;" />
+
+
 
 #### 误删锁问题-锁唯一性
 
 问题分析：
 
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902165725734.png" alt="image-20240902165725734" style="zoom: 67%;" align="left"/>
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902165725734.png" alt="image-20240902165725734" style="zoom: 67%;"/>
 
 分析：在获取锁的时候, 给锁设置的值是唯一的 `uuid`，在释放锁时,判断释放的锁是不是同一把锁，造成这个问题的本质原因, 是因为删除操作缺乏原子性
 
@@ -357,11 +345,11 @@ public void testLock() {
 
 `ab -n 1000 -c 100 http://192.168.198.1:8080/redisTest/testLock`
 
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902170318759.png" alt="image-20240902170318759" style="zoom:150%;" align="left"/>
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902170318759.png" alt="image-20240902170318759" style="zoom:150%;"/>
 
 #### 原子性问题
 
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902170515078.png" alt="image-20240902170515078" style="zoom:67%;" align="left"/>
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902170515078.png" alt="image-20240902170515078" style="zoom:67%;" />
 
 分析：
 
@@ -436,7 +424,7 @@ Lua脚本解析：
 
 `ab -n 1000 -c 100 http://192.168.198.1:8080/redisTest/testLock`
 
-<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902171906106.png" alt="image-20240902171906106" style="zoom: 150%;" align="left"/>
+<img src="./13-集成Redis的应用问题&解决方案.assets/image-20240902171906106.png" alt="image-20240902171906106" style="zoom: 150%;" >
 
 #### 小结
 
@@ -471,3 +459,4 @@ key 可以根据业务, 分别设置，比如操作某商品, key 应该是为�
 	* 不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。 
 	* 加锁和解锁必须是同一个客户端，A 客户端不能把 B 客户端加的锁给解了
 	* 加锁和解锁必须具有原子性
+
