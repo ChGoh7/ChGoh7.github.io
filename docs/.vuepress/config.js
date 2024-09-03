@@ -31,7 +31,8 @@ export default defineUserConfig({
             markdownPower: {
                 pdf: true,
             },
-            //默认本地搜索插件
+            //本地搜索和algolia提供的搜索不能同时配置否则会覆盖algolia的搜索插件
+            //默认是开启了本地搜索插件
             search: false,
             //搜索插件
             docsearch: {
