@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-08-30 16:47:45
+ * @LastEditTime: 2024-09-03 15:55:27
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -30,7 +30,16 @@ export default defineUserConfig({
             //内嵌pdf支持
             markdownPower: {
                 pdf: true,
+            },
+            //默认本地搜索插件
+            search: false,
+            //搜索插件
+            docsearch: {
+                appId: '6UHIQ8YOAT',
+                apiKey: 'ba57eb4f0385f95ebe4e4287fd4d4e27',
+                indexName: 'chgoh7',
             }
+
         }
     }),
     bundler: viteBundler()
