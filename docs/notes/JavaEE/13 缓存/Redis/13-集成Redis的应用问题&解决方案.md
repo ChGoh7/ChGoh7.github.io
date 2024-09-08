@@ -338,7 +338,7 @@ public void testLock() {
         //2.2 有值就转成成 int
         int num = Integer.parseInt(value + "");
         //2.3 把 redis 的 num 加 1
-        韩顺平Java 工程师redisTemplate.opsForValue().set("num", ++num);
+       redisTemplate.opsForValue().set("num", ++num);
         //2.4 释放锁，del
         //为了防止误删锁, 进行判断
         //判断当前这个锁是不是前面获取到的锁, 相同才进行删除/释放
