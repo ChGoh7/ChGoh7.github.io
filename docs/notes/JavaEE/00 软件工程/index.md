@@ -1,3 +1,8 @@
+---
+title: index
+createTime: 2024/09/03 21:32:42
+permalink: /notes/JavaEE/glv0cp3d/
+---
 ## 软件工程
 
 软件工程包括过程、一系列方法（实践）和大量工具，专业人员借由这些来构建高质量的计算机软件 
