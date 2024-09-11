@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:47:03
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-08-30 17:25:30
+ * @LastEditTime: 2024-09-11 19:03:21
  * @FilePath: \it-docs\docs\.vuepress\navbar.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -45,14 +45,35 @@ export default defineNavbarConfig(
         {
             text: '互联网文档',
             icon: 'mdi:web',
-            link: '/Webdocs/'
+            prefix: '/Webdocs/',
+            items: [
+                {
+                    text: '后端',
+                    icon: 'mynaui:servers',
+                    link: '后端/',
+                },
+                {
+                    text: '前端',
+                    icon: 'nimbus:browser',
+                    link: '前端/',
+                },
+                {
+                    text: '集成第三方服务',
+                    icon: 'clarity:plugin-line',
+                    link: '集成第三方服务/',
+                }
+            ]
         },
         {
             text: '探索',
             icon: 'carbon:ibm-watson-discovery',
             prefix: '/Discovery/',
             items: [
-                { text: '我的工具', icon: 'carbon:tool-kit', link: 'MyTools/' }
+                { text: '开源项目', icon: 'ri:open-source-fill', link: 'Opensource/' },
+                {
+                    text: '实用工具(站点/开源项目)', icon: 'carbon:tool-kit', link: 'MyTools/'
+                },
+                { text: 'fav', icon: 'material-symbols:favorite', link: 'Favorite/' }
             ]
         }, {
             text: '友链',

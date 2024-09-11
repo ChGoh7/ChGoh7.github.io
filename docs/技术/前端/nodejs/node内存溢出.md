@@ -54,7 +54,13 @@ permalink: /article/ahfs70hj/
 
 ![image-20240911155735186](./node内存溢出.assets/image-20240911155735186.png)
 
-找到这篇博客：
+找到这篇博客
+
+
+
+![image-20240911162242669](./node内存溢出.assets/image-20240911162242669.png)
+
+
 
 https://blog.csdn.net/qq_40608283/article/details/110183017
 

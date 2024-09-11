@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:44:40
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-09-03 18:26:45
+ * @LastEditTime: 2024-09-11 19:13:54
  * @FilePath: \it-docs\docs\.vuepress\plume.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -58,6 +58,14 @@ export default defineThemeConfig({
         link: '/', // 声明所有笔记默认的链接前缀， 默认为 '/'
         notes: [
             javaSENote, javaEENote, MicroservicesNote, DevOpsNote, ProjectNote
+        ]
+    },
+    sidebar: {
+        '/Discovery/Opensource/': [
+            { text: '实战项目', link: '实战项目/' },
+            { text: '系统设计',link: '系统设计/' },
+            { text: '工具类库', link: '工具类库/' },
+            { text: '开发工具', link: '开发工具/' },
         ]
     },
     //标题展示深度
