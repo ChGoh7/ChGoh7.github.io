@@ -1,0 +1,3 @@
+---
+icon: eos-icons:node
+---

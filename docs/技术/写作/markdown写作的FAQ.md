@@ -1,12 +1,11 @@
 ---
-title: markdown写作的Q&A
+title: markdown写作的FAQ
 createTime: 2024/08/27 13:34:03
 permalink: /article/pv4nggku/
 tags:
-  - markdown写作
-  - FAQ
+  - markdown FAQ
 ---
-> 该文档主要存放markdown写作时遇到的FAQ，减少资料收集工作
+> 该文档主要存放markdown写作时遇到的问题
 
 <!-- more --> 
 
@@ -159,7 +158,7 @@ output:
 
 :::
 
-![image-20240829000624628](./markdown写作的Q&A.assets/image-20240829000624628.png)
+![image-20240829000624628](./markdown写作的FAQ.assets/image-20240829000624628.png)
 
 <PageNav/>
 

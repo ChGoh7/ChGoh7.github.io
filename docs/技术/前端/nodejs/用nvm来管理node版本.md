@@ -2,6 +2,8 @@
 title: 用nvm来管理node版本
 createTime: 2024/09/11 15:45:14
 permalink: /article/cuf9nsvh/
+tags:
+  - nodejs FAQ
 ---
 `nvm ls`：查看nvm当前维护的node版本
 

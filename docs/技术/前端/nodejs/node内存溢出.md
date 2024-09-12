@@ -1,5 +1,8 @@
 ---
 title: node内存溢出
+tags:
+  - nodejs FAQ
+  - 内存溢出
 createTime: 2024/09/11 15:33:17
 permalink: /article/ahfs70hj/
 ---
@@ -68,4 +71,4 @@ https://blog.csdn.net/qq_40608283/article/details/110183017
 
 
 
-最后还是选择了插件的方式，但是太麻烦了
+最后还是选择了前者插件的方式然后改prog引用，太麻烦了
