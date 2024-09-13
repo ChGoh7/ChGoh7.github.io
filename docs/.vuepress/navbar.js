@@ -66,6 +66,7 @@ export default defineNavbarConfig(
         },
         {
             text: '备忘录',
+            icon: 'ep:memo',
             link: 'Memorandum/'
         },
         {
