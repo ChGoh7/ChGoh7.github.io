@@ -43,6 +43,13 @@ const ProjectNote = defineNoteConfig({
     link: 'notes/Project/',
     sidebar: 'auto'
 })
+
+const frontEndNote = defineNoteConfig({
+    text: '前端',
+    dir: '前端/',
+    link: 'notes/前端/',
+    sidebar: 'auto'
+})
 export default defineThemeConfig({
     logo: '/images/logo.png',
     // 在这里配置主题
@@ -57,7 +64,7 @@ export default defineThemeConfig({
         dir: '/notes/', // 声明所有笔记的目录
         link: '/', // 声明所有笔记默认的链接前缀， 默认为 '/'
         notes: [
-            javaSENote, javaEENote, MicroservicesNote, DevOpsNote, ProjectNote
+            javaSENote, javaEENote, MicroservicesNote, DevOpsNote, ProjectNote, frontEndNote
         ]
     },
     sidebar: {

@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:47:03
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-09-12 09:41:46
+ * @LastEditTime: 2024-09-13 17:50:12
  * @FilePath: \it-docs\docs\.vuepress\navbar.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -31,6 +31,14 @@ export default defineNavbarConfig(
                         { text: '微服务', link: 'Microservices/' },
                         { text: '开发|运营工具', link: 'DevOps/' },
                         { text: '项目开发', link: 'Project/' },
+                    ]
+                },
+                {
+                    text: '前端',
+                    icon: 'flowbite:html-solid',
+                    items: [
+                        { text: '前端基础', link: '前端/前端基础/' },
+                        { text: '前端框架', link: '前端/前端框架/' }
                     ]
                 },
                 {
