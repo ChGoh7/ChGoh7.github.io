@@ -1,3 +1,8 @@
+---
+tags:
+  - 使用技巧
+---
+
 > 本文引自[WTM框架使用技巧之：Layui版本嫁接Vue+ElementUI[通俗易懂]](https://cloud.tencent.com/developer/article/2103231)
 
 ## 为什么要这样做
