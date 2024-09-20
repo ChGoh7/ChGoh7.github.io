@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:47:03
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-09-14 18:19:41
+ * @LastEditTime: 2024-09-20 19:40:43
  * @FilePath: \it-docs\docs\.vuepress\navbar.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -26,11 +26,15 @@ export default defineNavbarConfig(
                     text: '后端',
                     icon: 'ri:java-fill',
                     items: [
-                        { text: 'JavaSE', link: 'JavaSE/' },
-                        { text: 'JavaEE', link: 'JavaEE/' },
-                        { text: '微服务', link: 'Microservices/' },
+                        { text: 'Java相关', link: 'Java/' },
+                        { text: '数据库', link: 'Databases/' },
+                        { text: '常用框架', link: 'Frameworks/' },
+                        { text: '系统设计', link: '系统设计/' },
+                        { text: '分布式', link: '分布式/' },
+                        { text: '高可用', link: '高可用/' },
+                        { text: '高性能', link: '高性能/' },
                         { text: '开发|运营工具', link: 'DevOps/' },
-                        { text: '项目开发', link: 'Project/' },
+                        { text: '项目开发指导', link: 'ProjectGuide/' },
                     ]
                 },
                 {

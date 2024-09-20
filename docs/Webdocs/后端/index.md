@@ -5,6 +5,22 @@ createTime: 2024/09/11 16:31:55
 
 ## Java相关
 
+### 技术博客
+
+<CardGrid>  
+
+<LinkCard icon="https://javadoop.com/favicon.ico" title="Javadoop" href="https://javadoop.com/">
+
+一个现居欧洲Java 开发大佬的博客， Java 领域相关技术
+
+</LinkCard> 
+
+</CardGrid>
+
+
+
+
+
 ### 微服务
 
 <CardGrid>  
