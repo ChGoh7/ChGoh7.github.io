@@ -1,6 +1,9 @@
 ---
 tags:
   - 使用技巧
+title: Layui版本嫁接Vue+ElementUI
+createTime: 2024/09/14 21:15:57
+permalink: /article/cog35bpe/
 ---
 
 > 本文引自[WTM框架使用技巧之：Layui版本嫁接Vue+ElementUI[通俗易懂]](https://cloud.tencent.com/developer/article/2103231)
