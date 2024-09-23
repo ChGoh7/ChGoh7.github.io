@@ -40,8 +40,7 @@ icon: ant-design:project-outlined
 
 - [x] [forum-java](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FQbian61%2Fforum-java)：一款用 Java（spring boot） 实现的现代化社区（论坛/问答/BBS/社交网络/博客）系统平台
 - [ ] [Mblog](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Flanghsu%2Fmblog)：开源 Java 博客系统
-
-Wiki/文档系统
+- [x] [bbs-springboot](https://github.com/maliangnansheng/bbs-springboot)：仿掘金之【南生论坛】基于SpringBoot+Vue(2/3)框架实现前后端分离（大厂微服务架构设计；代码简洁、高效无冗余；注释详细易阅读），自适应手机端和电脑端，界面简洁美观，功能完善，性能高效。
 --------------
 
 *   [zyplayer-doc](https://gitee.com/dromara/zyplayer-doc)：适合团队和个人私有化部署使用的知识库、笔记、WIKI 文档管理工具，同时还包含数据库管理、Api 接口管理等模块。
