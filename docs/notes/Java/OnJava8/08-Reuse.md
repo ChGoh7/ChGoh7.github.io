@@ -1,7 +1,7 @@
 ---
 title: 08-Reuse
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/alo9c55n/
+permalink: /notes/Java/alo9c55n/
 ---
 [TOC]
 

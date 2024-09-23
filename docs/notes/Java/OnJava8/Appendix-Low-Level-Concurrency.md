@@ -1,7 +1,7 @@
 ---
 title: Appendix-Low-Level-Concurrency
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/ryqp79tr/
+permalink: /notes/Java/ryqp79tr/
 ---
 [TOC]
 

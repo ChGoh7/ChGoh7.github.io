@@ -1,7 +1,7 @@
 ---
 title: 00-Preface
 createTime: 2024/09/02 22:10:59
-permalink: /notes/JavaSE/89q4tgym/
+permalink: /notes/Java/89q4tgym/
 ---
 
 # 前言

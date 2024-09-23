@@ -1,7 +1,7 @@
 ---
 title: 10 异常（Exception）
 createTime: 2024/09/01 23:18:29
-permalink: /notes/JavaSE/gylyd9zi/
+permalink: /notes/Java/gylyd9zi/
 ---
 > 在 Java 语言中，将程序执行中发生的不正常情况称为 “异常”（开发过程中的语法错误和逻辑错误不是异常）
 >

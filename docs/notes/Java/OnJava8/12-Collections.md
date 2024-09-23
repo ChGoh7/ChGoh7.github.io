@@ -1,7 +1,7 @@
 ---
 title: 12-Collections
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/is7bjih5/
+permalink: /notes/Java/is7bjih5/
 ---
 [TOC]
 

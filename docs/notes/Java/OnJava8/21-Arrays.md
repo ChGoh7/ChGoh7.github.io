@@ -1,7 +1,7 @@
 ---
 title: 21-Arrays
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/u75eqyyf/
+permalink: /notes/Java/u75eqyyf/
 ---
 [TOC]
 

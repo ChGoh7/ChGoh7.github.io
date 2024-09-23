@@ -1,7 +1,7 @@
 ---
 title: 简介
 createTime: 2024/09/02 22:10:59
-permalink: /notes/JavaSE/aems5euo/
+permalink: /notes/Java/aems5euo/
 ---
 
 # 简介

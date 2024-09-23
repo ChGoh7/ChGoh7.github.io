@@ -1,7 +1,7 @@
 ---
 title: Appendix-Programming-Guidelines
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/p5gxf4sj/
+permalink: /notes/Java/p5gxf4sj/
 ---
 [TOC]
 

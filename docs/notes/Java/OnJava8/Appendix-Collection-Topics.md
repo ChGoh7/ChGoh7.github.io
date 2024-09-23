@@ -1,7 +1,7 @@
 ---
 title: Appendix-Collection-Topics
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/xtqju52u/
+permalink: /notes/Java/xtqju52u/
 ---
 [TOC]
 

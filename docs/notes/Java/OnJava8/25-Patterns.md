@@ -1,7 +1,7 @@
 ---
 title: 25-Patterns
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/2r2pgqou/
+permalink: /notes/Java/2r2pgqou/
 ---
 [TOC]
 

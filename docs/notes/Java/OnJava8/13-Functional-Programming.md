@@ -1,7 +1,7 @@
 ---
 title: 13-Functional-Programming
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/6t8akedj/
+permalink: /notes/Java/6t8akedj/
 ---
 [TOC]
 

@@ -1,7 +1,7 @@
 ---
 title: README
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/wam87gb7/
+permalink: /notes/Java/wam87gb7/
 ---
 # 《On Java 8》中文版
 

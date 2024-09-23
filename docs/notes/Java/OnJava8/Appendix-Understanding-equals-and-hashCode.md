@@ -1,7 +1,7 @@
 ---
 title: Appendix-Understanding-equals-and-hashCode
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/xv2fpoal/
+permalink: /notes/Java/xv2fpoal/
 ---
 [TOC]
 

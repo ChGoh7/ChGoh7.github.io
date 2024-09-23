@@ -1,9 +1,9 @@
 ---
 title: 深入理解String
 createTime: 2024/09/01 23:18:29
-permalink: /notes/JavaSE/xuwd0zlx/
+permalink: /notes/Java/xuwd0zlx/
 ---
- 
+
 
 > String str = “a” + “b” + “c"到底创建了几个对象？这是我们在讨论中最经常遇到的一个问题同时也是面试题。我们都知道在Java中从”.java"文件编译成".class"文件的过程，会有一个优化器去优化我们的代码。这个问题需要分成三种情况去考虑，下面我们就来分析这三种情况！！
 

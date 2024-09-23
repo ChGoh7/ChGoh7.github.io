@@ -1,7 +1,7 @@
 ---
 title: Appendix-Standard-IO
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/6xyr32s4/
+permalink: /notes/Java/6xyr32s4/
 ---
 [TOC]
 

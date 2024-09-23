@@ -1,7 +1,7 @@
 ---
 title: 12 java集合
 createTime: 2024/09/01 23:18:29
-permalink: /notes/JavaSE/pz1x1fje/
+permalink: /notes/Java/pz1x1fje/
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title: Appendix-Data-Compression
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/rrpppf6j/
+permalink: /notes/Java/rrpppf6j/
 ---
 [TOC]
 

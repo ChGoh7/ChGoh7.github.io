@@ -1,7 +1,7 @@
 ---
 title: 18-Strings
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/bg5ccz1v/
+permalink: /notes/Java/bg5ccz1v/
 ---
 [TOC]
 

@@ -1,7 +1,7 @@
 ---
 title: 03-Objects-Everywhere
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/lvmr2m26/
+permalink: /notes/Java/lvmr2m26/
 ---
 [TOC]
 

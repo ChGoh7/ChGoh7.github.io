@@ -11,6 +11,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import { plumeTheme } from 'vuepress-theme-plume'
 // import { webpackBundler } from '@vuepress/bundler-webpack'
 export default defineUserConfig({
+    port: 9092,
     lang: 'zh-CN',
     title: 'chgoh7的文档&blog',
     head: [['link', { rel: 'icon', href: '/images/logo.png' }]],

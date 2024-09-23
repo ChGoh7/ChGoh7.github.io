@@ -1,7 +1,7 @@
 ---
 title: 13-集成Redis的应用问题&解决方案
 createTime: 2024/08/29 17:29:00
-permalink: /notes/JavaEE/k6kk3ojb/
+permalink: /notes/Databases/ts9n1ejr/
 ---
 
 ## 缓存穿透

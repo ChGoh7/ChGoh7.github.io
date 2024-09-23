@@ -1,7 +1,7 @@
 ---
 title: Appendix-New-IO
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/h8uhrb7i/
+permalink: /notes/Java/h8uhrb7i/
 ---
 [TOC]
 

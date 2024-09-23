@@ -1,7 +1,7 @@
 ---
 title: 16-Validating-Your-Code
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/9jrhfhsk/
+permalink: /notes/Java/9jrhfhsk/
 ---
 [TOC]
 

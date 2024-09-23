@@ -1,7 +1,7 @@
 ---
 title: Java8新特性
 createTime: 2024/08/26 15:23:12
-permalink: /notes/JavaSE/dt40wstr/
+permalink: /notes/Java/dt40wstr/
 ---
 ## Lambda 表达式
 

@@ -1,7 +1,7 @@
 ---
 title: 10-Interfaces
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/h3d5as0m/
+permalink: /notes/Java/h3d5as0m/
 ---
 [TOC]
 

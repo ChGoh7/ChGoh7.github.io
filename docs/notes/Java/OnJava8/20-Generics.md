@@ -1,7 +1,7 @@
 ---
 title: 20-Generics
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/zwq92b8j/
+permalink: /notes/Java/zwq92b8j/
 ---
 [TOC]
 

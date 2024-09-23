@@ -1,7 +1,7 @@
 ---
 title: 02-Installing-Java-and-the-Book-Examples
 createTime: 2024/09/02 22:10:59
-permalink: /notes/JavaSE/gcsyg7yy/
+permalink: /notes/Java/gcsyg7yy/
 ---
 [TOC]
 

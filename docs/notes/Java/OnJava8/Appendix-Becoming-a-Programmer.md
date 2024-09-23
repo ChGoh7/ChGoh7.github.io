@@ -1,7 +1,7 @@
 ---
 title: Appendix-Becoming-a-Programmer
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/ofurg7oq/
+permalink: /notes/Java/ofurg7oq/
 ---
 [TOC]
 

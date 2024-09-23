@@ -1,7 +1,7 @@
 ---
 title: 09-Polymorphism
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/07crc8cv/
+permalink: /notes/Java/07crc8cv/
 ---
 [TOC]
 

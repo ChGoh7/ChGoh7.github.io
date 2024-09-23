@@ -1,7 +1,7 @@
 ---
 title: 23-Annotations
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/e32v75vl/
+permalink: /notes/Java/e32v75vl/
 ---
 [TOC]
 

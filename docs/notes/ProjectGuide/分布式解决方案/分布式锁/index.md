@@ -1,10 +1,9 @@
 ---
 title: 分布式锁
 createTime: 2024/09/06 18:46:18
-permalink: /notes/Project/m8f5aayn/
+permalink: /notes/ProjectGuide/671h6puh/
+
 ---
-
-
 
 
 
@@ -27,13 +26,13 @@ permalink: /notes/Project/m8f5aayn/
 > ```java
 > Lock lock = ...; 
 > if (lock. tryLock()) {   
->     try {  
->       // manipulate protected state  
->     } finally {   
->         lock. unlock();  
->     } 
+>  try {  
+>    // manipulate protected state  
+>  } finally {   
+>      lock. unlock();  
+>  } 
 > } else {   
->     // perform alternative actions
+>  // perform alternative actions
 > }
 > ```
 >

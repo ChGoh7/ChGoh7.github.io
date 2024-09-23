@@ -1,7 +1,7 @@
 ---
 title: 04-Operators
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/w6tfk767/
+permalink: /notes/Java/w6tfk767/
 ---
 [TOC]
 

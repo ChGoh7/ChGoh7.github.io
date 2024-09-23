@@ -1,7 +1,7 @@
 ---
 title: index
 createTime: 2024/09/06 14:49:32
-permalink: /notes/JavaEE/3o7xo2us/
+permalink: /notes/Frameworks/3o7xo2us/
 ---
 > 查看[springframework文档](https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html)
 

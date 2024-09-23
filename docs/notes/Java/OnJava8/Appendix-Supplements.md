@@ -1,7 +1,7 @@
 ---
 title: Appendix-Supplements
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/n0iako9x/
+permalink: /notes/Java/n0iako9x/
 ---
 [TOC]
 

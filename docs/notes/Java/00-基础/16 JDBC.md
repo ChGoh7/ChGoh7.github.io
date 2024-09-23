@@ -1,7 +1,7 @@
 ---
 title: 16 JDBC
 createTime: 2024/09/01 23:18:29
-permalink: /notes/JavaSE/d5rws5ch/
+permalink: /notes/Java/d5rws5ch/
 ---
 ![bieming](https://gitee.com/kilomi/pic-bed/raw/master/img/202311042134382.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Appendix-IO-Streams
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/puebkg0v/
+permalink: /notes/Java/puebkg0v/
 ---
 [TOC]
 

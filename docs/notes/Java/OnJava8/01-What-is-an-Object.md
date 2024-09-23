@@ -1,7 +1,7 @@
 ---
 title: 01-What-is-an-Object
 createTime: 2024/09/02 22:10:59
-permalink: /notes/JavaSE/4qs1qgow/
+permalink: /notes/Java/4qs1qgow/
 ---
 # 第一章 对象的概念
 

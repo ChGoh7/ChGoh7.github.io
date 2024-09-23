@@ -1,7 +1,7 @@
 ---
 title: 11-Inner-Classes
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/i9mqw0xe/
+permalink: /notes/Java/i9mqw0xe/
 ---
 [TOC]
 

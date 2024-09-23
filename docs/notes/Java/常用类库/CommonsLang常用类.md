@@ -1,7 +1,7 @@
 ---
 title: CommonsLang常用类
 createTime: 2024/08/26 15:27:37
-permalink: /notes/JavaSE/xyo8763r/
+permalink: /notes/Java/xyo8763r/
 ---
 ## StringUtils
 

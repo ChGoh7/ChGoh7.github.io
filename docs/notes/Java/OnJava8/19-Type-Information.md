@@ -1,7 +1,7 @@
 ---
 title: 19-Type-Information
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/4so87c51/
+permalink: /notes/Java/4so87c51/
 ---
 [TOC]
 

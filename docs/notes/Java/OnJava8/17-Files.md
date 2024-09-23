@@ -1,7 +1,7 @@
 ---
 title: 17-Files
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/c8xgp67o/
+permalink: /notes/Java/c8xgp67o/
 ---
 [TOC]
 

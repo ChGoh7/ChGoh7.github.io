@@ -1,7 +1,7 @@
 ---
 title: Appendix-The-Positive-Legacy-of-C-plus-plus-and-Java
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/mawy2erm/
+permalink: /notes/Java/mawy2erm/
 ---
 [TOC]
 

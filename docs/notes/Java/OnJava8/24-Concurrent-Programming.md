@@ -1,7 +1,7 @@
 ---
 title: 24-Concurrent-Programming
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/gkl5bfa6/
+permalink: /notes/Java/gkl5bfa6/
 ---
 [TOC]
 

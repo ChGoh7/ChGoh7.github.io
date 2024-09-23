@@ -1,7 +1,7 @@
 ---
 title: Appendix-Passing-and-Returning-Objects
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/3esgvj1q/
+permalink: /notes/Java/3esgvj1q/
 ---
 [TOC]
 

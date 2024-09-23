@@ -1,7 +1,7 @@
 ---
 title: 14-Streams
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/fp14z9rx/
+permalink: /notes/Java/fp14z9rx/
 ---
 [TOC]
 

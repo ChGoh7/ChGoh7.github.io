@@ -1,7 +1,7 @@
 ---
 title: 07-Implementation-Hiding
 createTime: 2024/09/02 22:11:00
-permalink: /notes/JavaSE/tkc9lw6l/
+permalink: /notes/Java/tkc9lw6l/
 ---
 [TOC]
 
