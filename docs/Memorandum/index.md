@@ -12,6 +12,10 @@ config:
         title: nodejs
         details: nodejs操作，命令
         link: /Memorandum/nodejs/
+      -
+        title: github
+        details: github相关操作和技巧
+        link: /Memorandum/github/
 ---
 
 

@@ -5,13 +5,16 @@ permalink: /article/r3ymvj3m/
 tags:
   - 博客FAQ
 sticky: 999
+cover:
+  url: /images/theme-plume-home.png
+  layout: left
 ---
-
-
 
 > [!TIP]
 >
 > 该文档记录plume主题遇到的一些常见的问题
+
+<!-- more -->
 
 ## notes配置项
 

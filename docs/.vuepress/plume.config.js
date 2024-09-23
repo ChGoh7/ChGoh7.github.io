@@ -103,6 +103,7 @@ export default defineThemeConfig({
         'Memorandum/': [
             { text: '备忘录', link: '/Memorandum/' },
             { text: 'nodejs', link: 'nodejs/' },
+            { text: 'github', link: 'github/' }
         ]
     },
     //标题展示深度

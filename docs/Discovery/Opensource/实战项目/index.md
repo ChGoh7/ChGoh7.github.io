@@ -39,12 +39,7 @@ icon: ant-design:project-outlined
 - [x] [symphony](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2F88250%2Fsymphony)：Java 实现的现代化社区（社区的 `3Blog构思` 挺有趣的）
 
 - [x] [forum-java](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FQbian61%2Fforum-java)：一款用 Java（spring boot） 实现的现代化社区（论坛/问答/BBS/社交网络/博客）系统平台
-
 - [ ] [Mblog](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Flanghsu%2Fmblog)：开源 Java 博客系统
-
-- [ ] [My-Blog-layui](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FZHENFENG13%2FMy-Blog-layui)：layui 版本的 My-Blog : A simple & beautiful blogging system implemented with spring-boot & layui & thymeleaf & mybatis My Blog 是由 SpringBoot + Layui + Mybatis + Thymeleaf 等技术实现的 Java 博客系统，页面美观、功能齐全、部署简单及完善的代码，一定会给使用者无与伦比的体验
-
-	
 
 Wiki/文档系统
 --------------
