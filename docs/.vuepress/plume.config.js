@@ -75,6 +75,8 @@ const frontEndNote = defineNoteConfig({
     link: 'notes/前端/',
     sidebar: 'auto'
 })
+
+
 export default defineThemeConfig({
     logo: '/images/logo.png',
     // 在这里配置主题
@@ -104,6 +106,16 @@ export default defineThemeConfig({
             { text: '备忘录', link: '/Memorandum/' },
             { text: 'nodejs', link: 'nodejs/' },
             { text: 'github', link: 'github/' }
+        ],
+        'BookStack/': [
+            { text: '书栈', link: '/BookStack/' },
+            {
+                text: '认知思维篇', prefix: '认知思维篇/', items: [
+                    {
+                        text: '金字塔原理', link: '金字塔原理/'
+                    }
+                ]
+            },
         ]
     },
     //标题展示深度

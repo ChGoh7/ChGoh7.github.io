@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:47:03
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-09-20 19:40:43
+ * @LastEditTime: 2024-09-26 00:30:42
  * @FilePath: \it-docs\docs\.vuepress\navbar.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -75,6 +75,11 @@ export default defineNavbarConfig(
                     link: '集成第三方服务/',
                 }
             ]
+        },
+        {
+            text: '书栈',
+            icon: 'mingcute:book-line',
+            link: 'BookStack/'
         },
         {
             text: '备忘录',
