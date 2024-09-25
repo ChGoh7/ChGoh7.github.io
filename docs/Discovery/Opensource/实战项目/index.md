@@ -44,7 +44,6 @@ icon: ant-design:project-outlined
 --------------
 
 *   [zyplayer-doc](https://gitee.com/dromara/zyplayer-doc)：适合团队和个人私有化部署使用的知识库、笔记、WIKI 文档管理工具，同时还包含数据库管理、Api 接口管理等模块。
-*   [kkFileView](https://gitee.com/kekingcn/file-online-preview)：文档在线预览解决方案，支持几乎所有主流文档格式预览，例如 doc、docx、ppt、pptx、wps、xls、xlsx、zip、rar、ofd、xmind、bpmn 、eml 、epub、3ds、dwg、psd 、mp4、mp3 等等。
 
 文件管理系统/网盘
 --------------
