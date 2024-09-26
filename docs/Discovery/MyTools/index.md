@@ -79,4 +79,16 @@
 ## 产品类
 
 
+## 区块链
+
+<CardGrid>  
+
+<LinkCard icon="https://xlog.xlog.app/favicon.ico" title="xLog" href="https://xlog.xlog.app">
+
+The First On-Chain and Open-Source Blogging platform.
+
+</LinkCard> 
+
+</CardGrid>
+
 
