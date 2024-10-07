@@ -42,7 +42,8 @@ export default defineUserConfig({
                 indexName: 'chgoh7',
             }, readingTime: {
                 wordPerMinute: 300
-            }, markdownEnhance: {
+            },
+            markdownEnhance: {
                 hint: true, // 提示容器
                 codetabs: true, // 代码组
                 tabs: true, // 选项卡
@@ -76,8 +77,14 @@ export default defineUserConfig({
                 // sandpack: true, // sandpack 交互演示
                 // demo: true, // 代码案例
                 // revealJs: true, // 幻灯片支持
+            },
+            // 支持各种语言代码高亮
+            shiki: {
+                languages: ["markdown", "js", "html", "java", "sql", "yaml", "cmd", "properties", "xml", "bash", "go", "c", "shell", "c++", "python", "javascript", "json", "awk", "vue", "css"],
             }
         }
     }),
     bundler: viteBundler()
 })
+
+

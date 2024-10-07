@@ -1,3 +1,13 @@
+---
+tags:
+  - cookie
+  - session
+  - servlet
+title: Cookie在前端写还是后端
+createTime: 2024/10/07 18:34:58
+permalink: /article/m2xf9nj5/
+---
+
 > 最近疑惑有些项目有的是前端写cookie，有的是后端写cookie，找了几篇文章：
 >
 > *  [Cookie在前端写还是后端？](https://blog.csdn.net/az44yao/article/details/90311991#:~:text=前后端同时写了coo)
