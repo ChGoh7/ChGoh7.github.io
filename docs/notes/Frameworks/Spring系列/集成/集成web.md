@@ -1,7 +1,14 @@
+---
+title: 集成web
+createTime: 2024/10/12 11:32:29
+permalink: /notes/Frameworks/edkxo606/
+---
 ## 整合 Web
 ### web开发-静态资源访问
 
-在线文档：https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.develcping-web-applications
+在线文档：https://docs.spring.io/spring-boot/reference/features/external-config.html
+
+
 
 1. 只要静态资源放在/static、/public、/resources、/META-INF/resources可以被直接访问——对应文件WebProperties.java,会读取这个配置
 

@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:47:03
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-09-26 00:30:42
+ * @LastEditTime: 2024-10-13 21:29:48
  * @FilePath: \it-docs\docs\.vuepress\navbar.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -45,13 +45,6 @@ export default defineNavbarConfig(
                         { text: '前端框架', link: '前端/前端框架/' }
                     ]
                 },
-                {
-                    text: '其他',
-                    prefix: 'Others/',
-                    items: [
-                        { text: 'markdown语法', link: 'markdown语法/' }
-                    ]
-                }
             ]
         },
         {
@@ -68,11 +61,6 @@ export default defineNavbarConfig(
                     text: '前端',
                     icon: 'nimbus:browser',
                     link: '前端/',
-                },
-                {
-                    text: '集成第三方服务',
-                    icon: 'clarity:plugin-line',
-                    link: '集成第三方服务/',
                 }
             ]
         },
@@ -91,10 +79,11 @@ export default defineNavbarConfig(
             icon: 'carbon:ibm-watson-discovery',
             prefix: '/Discovery/',
             items: [
-                { text: '开源项目', icon: 'ri:open-source-fill', link: 'Opensource/' },
+                { text: '解决方案', icon: 'ant-design:solution-outlined', link: 'Solutions/' },
                 {
-                    text: '实用工具(站点/开源项目)', icon: 'carbon:tool-kit', link: 'MyTools/'
+                    text: '实用工具', icon: 'carbon:tool-kit', link: 'MyTools/'
                 },
+                { text: '开源项目', icon: 'ri:open-source-fill', link: 'Opensource/' },
                 { text: 'fav', icon: 'material-symbols:favorite', link: 'Favorite/' }
             ]
         }, {
@@ -118,9 +107,6 @@ export default defineNavbarConfig(
                     { text: 'JavaEE', link: 'JavaEE/' },
                     { text: 'Microservices', link: 'Microservices/' }
                 ]
-            }, {
-                text: 'Others',
-                link: '/en/Others/'
             }
         ]
     }

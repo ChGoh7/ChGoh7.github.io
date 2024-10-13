@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:44:40
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-07 20:18:05
+ * @LastEditTime: 2024-10-13 23:45:15
  * @FilePath: \it-docs\docs\.vuepress\plume.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -105,7 +105,8 @@ export default defineThemeConfig({
         'Memorandum/': [
             { text: '备忘录', link: '/Memorandum/' },
             { text: 'nodejs', link: 'nodejs/' },
-            { text: 'github', link: 'github/' }
+            { text: 'github', link: 'github/' },
+            { text: 'dos', link: 'dos/' }
         ],
         'BookStack/': [
             { text: '书栈', link: '/BookStack/' },
@@ -116,6 +117,51 @@ export default defineThemeConfig({
                     }
                 ]
             },
+        ],
+        '/Discovery/Solutions/': [
+            {
+                text: '编程相关', prefix: '编程相关/', items: [
+                    {
+                        text: '关于编程', link: '/Discovery/Solutions/编程相关/'
+                    },
+                    {
+                        text: 'Java', link: 'java/'
+                    },
+                    {
+                        text: 'GitHub', link: 'github/'
+                    },
+                    {
+                        text: 'Node.js', link: 'nodejs/'
+                    },
+                    {
+                        text: 'MySQL', link: 'mysql/'
+                    }
+                ]
+            }, {
+                text: '工作相关', prefix: '工作相关/', items: [
+                    {
+                        text: '关于工作', link: '/Discovery/Solutions/工作相关/',
+                    },
+                    {
+                        text: '面试', link: 'interview/',
+                    },
+                ]
+            },
+            {
+                text: '思维模型相关', prefix: '思维模型相关/', items: [
+                    {
+                        text: '关于思维模型', link: '/Discovery/Solutions/思维模型相关/',
+                    },
+                    {
+                        text: '人际和领导力', link: 'interpersonal&leadship/',
+                    }, {
+                        text: '学习和创新力', link: 'learning&innovation/'
+                    }
+                ]
+            },
+            {
+                text: 'Markdown写作', link: 'markdown/'
+            }
         ]
     },
     //标题展示深度
