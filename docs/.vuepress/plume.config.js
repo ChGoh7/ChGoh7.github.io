@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:44:40
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-13 23:45:15
+ * @LastEditTime: 2024-10-15 12:59:27
  * @FilePath: \it-docs\docs\.vuepress\plume.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -95,13 +95,6 @@ export default defineThemeConfig({
         ]
     },
     sidebar: {
-        '/Discovery/Opensource/': [
-            { text: '简介', link: 'index' },
-            { text: '实战项目', link: '实战项目/' },
-            { text: '系统设计', link: '系统设计/' },
-            { text: '工具类库', link: '工具类库/' },
-            { text: '开发工具', link: '开发工具/' },
-        ],
         'Memorandum/': [
             { text: '备忘录', link: '/Memorandum/' },
             { text: 'nodejs', link: 'nodejs/' },
@@ -118,11 +111,18 @@ export default defineThemeConfig({
                 ]
             },
         ],
+        '/Discovery/Opensource/': [
+            { text: '简介', link: 'index' },
+            { text: '实战项目', link: '实战项目/' },
+            { text: '系统设计', link: '系统设计/' },
+            { text: '工具类库', link: '工具类库/' },
+            { text: '开发工具', link: '开发工具/' },
+        ],
         '/Discovery/Solutions/': [
             {
-                text: '编程相关', prefix: '编程相关/', items: [
+                text: '编程相关', prefix: 'programming/', items: [
                     {
-                        text: '关于编程', link: '/Discovery/Solutions/编程相关/'
+                        text: '关于编程', link: '/Discovery/Solutions/programming/'
                     },
                     {
                         text: 'Java', link: 'java/'
@@ -138,9 +138,9 @@ export default defineThemeConfig({
                     }
                 ]
             }, {
-                text: '工作相关', prefix: '工作相关/', items: [
+                text: '工作相关', prefix: 'work/', items: [
                     {
-                        text: '关于工作', link: '/Discovery/Solutions/工作相关/',
+                        text: '关于工作', link: '/Discovery/Solutions/work/',
                     },
                     {
                         text: '面试', link: 'interview/',
@@ -148,9 +148,9 @@ export default defineThemeConfig({
                 ]
             },
             {
-                text: '思维模型相关', prefix: '思维模型相关/', items: [
+                text: '思维模型相关', prefix: 'mental-model/', items: [
                     {
-                        text: '关于思维模型', link: '/Discovery/Solutions/思维模型相关/',
+                        text: '关于思维模型', link: '/Discovery/Solutions/mental-model/',
                     },
                     {
                         text: '人际和领导力', link: 'interpersonal&leadship/',
@@ -176,4 +176,16 @@ export default defineThemeConfig({
     //         '/notes/JavaSE': 'wu201495'
     //     }
     // },
+    blog: {
+        // 配置 封面图 布局位置
+        // postCover: 'left', // 'left' | 'right' | 'odd-left' | 'odd-right' | 'top'
+        postCover: {
+            layout: 'left',
+            ratio: '16:9',
+            width: 300,
+            compact: true
+        },
+        categoriesExpand: 0,
+        tagsTheme: 'gray'
+    }
 })

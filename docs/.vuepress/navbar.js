@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:47:03
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-13 21:29:48
+ * @LastEditTime: 2024-10-14 15:06:44
  * @FilePath: \it-docs\docs\.vuepress\navbar.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -42,6 +42,7 @@ export default defineNavbarConfig(
                     icon: 'flowbite:html-solid',
                     items: [
                         { text: '前端基础', link: '前端/前端基础/' },
+                        { text: '前端框架', link: '前端/前端框架/' },
                         { text: '前端框架', link: '前端/前端框架/' }
                     ]
                 },
@@ -55,12 +56,12 @@ export default defineNavbarConfig(
                 {
                     text: '后端',
                     icon: 'mynaui:servers',
-                    link: '后端/',
+                    link: 'backend/',
                 },
                 {
                     text: '前端',
                     icon: 'nimbus:browser',
-                    link: '前端/',
+                    link: 'frontend/',
                 }
             ]
         },

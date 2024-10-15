@@ -7,7 +7,7 @@ tags:
 sticky: 999
 cover:
   url: /images/theme-plume-home.png
-  layout: left
+  layout: top
 ---
 
 > [!TIP]
