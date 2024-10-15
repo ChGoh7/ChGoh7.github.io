@@ -1,7 +1,8 @@
 ---
 tags:
-  - mysql FAQ
-title: mysql服务无法启动
+ - MySQL
+ - FAQ
+title: MySQL服务无法启动
 createTime: 2024/09/12 09:11:05
 permalink: /article/rjnx6gmk/
 ---

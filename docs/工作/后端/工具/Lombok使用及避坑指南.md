@@ -1,6 +1,7 @@
 ---
 tags:
-  - lombok
+  - 库/依赖
+  - 避坑
 title: Lombok使用及避坑指南
 createTime: 2024/09/15 15:24:36
 permalink: /article/5usr8z68/

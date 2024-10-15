@@ -1,6 +1,6 @@
 ---
 tags:
-  - 博客搭建
+  - 博客
   - 域名
   - CDN
 title: 利用cloudflare加速githubpages

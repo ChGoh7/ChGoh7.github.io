@@ -3,7 +3,8 @@ title: vuepress-plume主题注意事项
 createTime: 2024/08/30 17:42:02
 permalink: /article/r3ymvj3m/
 tags:
-  - 博客FAQ
+  - 博客
+  - FAQ
 sticky: 999
 cover:
   url: /images/theme-plume-home.png
