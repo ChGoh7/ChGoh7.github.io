@@ -17,7 +17,7 @@ export default defineUserConfig({
     head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
     base: '/',
     theme: plumeTheme({
-        hostname: 'http://chgoh7.site',
+        // hostname: 'http://chgoh7.site',
         plugins: {
             comment: {
                 provider: 'Giscus', // "artalk“ | "Giscus" | "twikoo" | "waline"
