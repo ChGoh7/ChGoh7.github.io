@@ -3,7 +3,7 @@ pageLayout: home
 config:
   -  
      type: banner
-     banner: https://krseoul.imgtbl.com/i/2024/08/25/66caea55d9f97.jpg
+     banner: https://bz.w3h5.com/img/uhd
      bannerMask:
        light: 0.1
        dark: 0.3

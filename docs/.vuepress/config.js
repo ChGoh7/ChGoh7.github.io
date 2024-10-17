@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-15 12:15:15
+ * @LastEditTime: 2024-10-18 01:44:35
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -17,10 +17,11 @@ export default defineUserConfig({
     head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
     base: '/',
     theme: plumeTheme({
+        hostname: 'http://chgoh7.site',
         plugins: {
             comment: {
                 provider: 'Giscus', // "artalk“ | "Giscus" | "twikoo" | "waline"
-                comment: false,
+                comment: true,
                 repo: 'chgoh7/chgoh7.github.io',
                 repoid: 'r_kgdomoxr5a',
                 category: 'general',

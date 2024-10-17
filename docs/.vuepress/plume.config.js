@@ -139,7 +139,7 @@ export default defineThemeConfig({
                     }
                 ]
             }, {
-                text: '工作相关', prefix: 'work/', items: [
+                text: '工作相关', prefix: 'work/', collapsed: true, items: [
                     {
                         text: '关于工作', link: '/Discovery/Solutions/work/',
                     },
@@ -152,7 +152,7 @@ export default defineThemeConfig({
                 ]
             },
             {
-                text: '思维模型相关', prefix: 'mental-model/', items: [
+                text: '思维模型相关', prefix: 'mental-model/', collapsed: true, items: [
                     {
                         text: '关于思维模型', link: '/Discovery/Solutions/mental-model/',
                     },
