@@ -1,7 +1,7 @@
 ---
 title: sgg_Vue2笔记
 createTime: 2024/09/13 17:25:19
-permalink: /notes/前端/urnsbw0h/
+permalink: /notes/frontend/5he8rqoi/
 ---
 ## 脚手架文件结构
 

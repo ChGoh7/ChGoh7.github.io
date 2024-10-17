@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:44:40
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-15 18:18:05
+ * @LastEditTime: 2024-10-15 20:30:57
  * @FilePath: \it-docs\docs\.vuepress\plume.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -71,8 +71,8 @@ const ProjectGuideNote = defineNoteConfig({
 
 const frontEndNote = defineNoteConfig({
     text: '前端',
-    dir: '前端/',
-    link: 'notes/前端/',
+    dir: 'frontend/',
+    link: 'notes/frontend/',
     sidebar: 'auto'
 })
 
@@ -91,7 +91,7 @@ export default defineThemeConfig({
         dir: '/notes/', // 声明所有笔记的目录
         link: '/', // 声明所有笔记默认的链接前缀， 默认为 '/'
         notes: [
-            JavaNote, frameworkNote, DataBasesNote, DistributedNote, HPNote, HANote, DevOpsNote, ProjectGuideNote, frontEndNote,
+            JavaNote, frameworkNote, DataBasesNote, DistributedNote, HPNote, HANote, DevOpsNote, ProjectGuideNote, frontEndNote
         ]
     },
     sidebar: {
@@ -117,6 +117,7 @@ export default defineThemeConfig({
             { text: '系统设计', link: '系统设计/' },
             { text: '工具类库', link: '工具类库/' },
             { text: '开发工具', link: '开发工具/' },
+            { text: '实用工具和插件', link: '实用工具和插件/' }
         ],
         '/Discovery/Solutions/': [
             {
@@ -145,6 +146,9 @@ export default defineThemeConfig({
                     {
                         text: '面试', link: 'interview/',
                     },
+                    {
+                        text: '远程工作', link: 'remote-job/'
+                    }
                 ]
             },
             {
@@ -161,8 +165,8 @@ export default defineThemeConfig({
             },
             {
                 text: 'Markdown写作', link: 'markdown/'
-            }
-        ]
+            },
+        ],
     },
     //标题展示深度
     outline: 'deep',

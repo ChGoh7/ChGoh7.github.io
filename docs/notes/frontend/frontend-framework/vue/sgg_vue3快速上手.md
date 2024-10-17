@@ -1,7 +1,7 @@
 ---
 title: sgg_vue3快速上手
 createTime: 2024/09/13 17:25:19
-permalink: /notes/前端/weagexva/
+permalink: /notes/frontend/tgljiyx2/
 ---
 # Vue3快速上手
 
