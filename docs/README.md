@@ -3,7 +3,7 @@ pageLayout: home
 config:
   -  
      type: banner
-     banner: https://bz.w3h5.com/img/uhd
+     banner: https://bing.img.run/uhd.php
      bannerMask:
        light: 0.1
        dark: 0.3
