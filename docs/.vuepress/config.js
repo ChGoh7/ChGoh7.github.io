@@ -2,13 +2,14 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-18 01:44:35
+ * @LastEditTime: 2024-10-20 12:49:41
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import { defineUserConfig } from 'vuepress/cli'
 import { viteBundler } from '@vuepress/bundler-vite'
 import { plumeTheme } from 'vuepress-theme-plume'
+import { getDirname, path } from 'vuepress/utils'
 // import { webpackBundler } from '@vuepress/bundler-webpack'
 export default defineUserConfig({
     port: 9092,
@@ -90,7 +91,13 @@ export default defineUserConfig({
             }
         }
     }),
-    bundler: viteBundler()
+    alias: {
+        '@theme/Blog/VPShortPostList.vue': path.resolve(
+            __dirname,
+            './components/blog/ShortPostList.vue',
+        ),
+    },
+    bundler: viteBundler(),
 })
 
 
