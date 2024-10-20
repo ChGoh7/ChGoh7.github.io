@@ -128,6 +128,8 @@ export default defineThemeConfig({
                     {
                         text: 'Java', link: 'java/'
                     },
+                    { text: 'apache', link: 'apache/' }
+                    ,
                     {
                         text: 'GitHub', link: 'github/'
                     },
@@ -148,7 +150,7 @@ export default defineThemeConfig({
                     },
                     {
                         text: '远程工作', link: 'remote-job/'
-                    }
+                    },
                 ]
             },
             {
