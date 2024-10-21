@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-20 12:49:41
+ * @LastEditTime: 2024-10-21 09:03:50
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -64,7 +64,7 @@ export default defineUserConfig({
 
                 // 以下可选项在 主题中默认不启用，
                 // 请在主题中自行配置
-                // include: true, // markdown 导入支持
+                include: true, // markdown 导入支持
                 // figure: true, // 启用图片 figure 支持
                 // imglazyload: true, // 使用原生方式懒加载页面图片
                 // imgmark: true, // 浅色/深色 图片标记
@@ -82,8 +82,6 @@ export default defineUserConfig({
                 // sandpack: true, // sandpack 交互演示
                 // demo: true, // 代码案例
                 // revealjs: true, // 幻灯片支持
-
-                //wuchen
             },
             // 支持各种语言代码高亮
             shiki: {

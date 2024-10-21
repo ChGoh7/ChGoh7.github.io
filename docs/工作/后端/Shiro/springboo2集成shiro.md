@@ -3,7 +3,88 @@ title: springboo2集成shiro
 createTime: 2024/10/20 21:40:53
 permalink: /article/l3s7joo9/
 ---
-## 环境搭建
+## 简介
+
+> Apache Shiro是一个强大且易用的Java安全框架,执行身份验证、授权、密码和会话管理。Shiro 可以非常容易的开发出足够好的应用，其不仅可以用在 JavaSE 环境，也可以用在 JavaEE 环境。
+
+### 权限管理
+
+常见的权限管理分为 基于主页的权限管理 、基于用户和权限的权限管理 以及 基于角色的访问控制（RBAC）。这里推荐使用 RBAC模型下的权限管理。
+
+### 其他权限框架
+
+* shiro：Apache Shrio是功能强大并且易用的Java安全框架 
+* Spring Security：基于Spring的安全框架，依赖Spring 
+* OAuth2：第三方授权框架（QQ、微信） 自定义安全认证中心
+
+
+
+### 核心功能
+
+> [!NOTE] 
+>
+> 基本概念：
+>
+> `Anthentication`：认证，验证用户是否有相应的身份 登录认证 
+>
+> `Authorization`：授权，权限验证，通过认证的用户检查是否有权限或者角色
+>
+> `Session Management`：会话管理，用户在认证成功后创建会话，在没有退出之前，当前用户的所有信息都会保存在这个会话中 
+>
+> `Cryptograsphy`：加密，对敏感信息加密
+
+> [!NOTE]
+>
+> 特性：
+>
+> 1.Web Support Shrio提供了过滤器，可以通过过滤器拦截web请求来处理web应用的访问控制
+> 2.Caching 缓存支持，shiro可以缓存用户信息以及用户的角色权限信息，可以提高执行效率
+> 3.concurrency shiro支持多线程应用
+> 4.Run As 允许一个用户以另一种身份去访问
+> 5.Remeber Me 记住密码
+> 6.Testing 提供测试支持
+
+> [!WARNING]
+>
+> Shiro是一个安全框架，不提供用户、权限的维护，用户的权限管理需要我们去设计，在后文的 Realm实现方法有所体现。
+
+> [!NOTE]
+>
+> 核心组件：
+>
+> `Subject`:表示待认证和授权的用户
+>
+> `Security Manager` :Shiro框架的核心，Shiro就是通过Security Manager来进行内部实例的管理，并通过它来提供安全管理的各种服务
+>
+> `Realms`：shiro进行认证和授权的数据源，在这里进行身份验证和授权
+
+
+
+```sequence
+	participant Subject
+	participant Security Manager
+	participant Authentiator
+	participant IniRealm
+	participant shiro.ini
+	
+    Subject->>Security Manager: 认证请求 login(token)
+	Security Manager->>Authentiator: token
+	Authentiator->>IniRealm: token
+	Note right of IniRealm: doGetAuthenticationInfo() 认证
+	Note right of IniRealm: doGetAuthorizationInfo() 授权
+	shiro.ini-->IniRealm: 提供认证信息
+	IniRealm-->Authentiator: 认证
+	Authentiator-->Security Manager: 认证
+	Security Manager-->Subject: 认证
+	Note right of shiro.ini: 本身即可配置数据也可配置shiro，这里的作用主要是提供简单的安全信息
+	Note right of shiro.ini: spring中可替换为数据库+shiro配置，这时须实现我们的realm，安全信息则是在数据库
+```
+
+1. 通过 subject.login(token) 登录，将 token（用户名和密码）传递给 SecurityManager
+2. SecurityManager 调用Anthenticator 进行身份认证
+3. Authenticator 把token传给对应Realm（可以是自定义的Realm，其中我们自己处理认证和授权的逻辑，认证我们就自己校验，授权查询数据库的用户权限进行授权，在访问需要权限的路径时会检查是否包含在我们这里授权的字段，shiro默认提供了JDBCRealm，但是要实现它的表结构，如果我们想自己定义表结构，就要自定义相关的Realm），这里shiro.ini是一个示例，IniRealm只是针对他的一个实现。
+4. Realm根据得到的token，调用 doGetAuthenticationInfo 方法进行认证，认证失败则抛出异常提示认证器环境搭建
+5. 接着将认证结果返回到上层
 
 ### IDE 中创建一个 maven 的项目
 
@@ -12,51 +93,38 @@ permalink: /article/l3s7joo9/
 ### 在maven的pom.xml 中添加依赖
 
 ```xml :collapsed-lines=1
-<dependency>
+<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.1.RELEASE</version>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
- </dependency>
-<!--lombok-->
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>${lombok.version}</version>
-    </dependency>
- 
-    <!--mysql-->
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>${mysql.version}</version>
-    </dependency>
- 
-    <!--mybatis-->
-    <dependency>
-        <groupId>org.mybatis.spring.boot</groupId>
-        <artifactId>mybatis-spring-boot-starter</artifactId>
-        <version>${mybatis.version}</version>
-    </dependency>
- 
-    <!--druid-->
-    <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>druid</artifactId>
-        <version>${druid.version}</version>
-    </dependency>
- 
-    <!--fastjson-->
-    <dependency>
-        <groupId>com.alibaba</groupId>
-        <artifactId>fastjson</artifactId>
-        <version>${fastjson.version}</version>
-    </dependency>
- 
-    <!-- shiro -->
-    <dependency>
-        <groupId>org.apache.shiro</groupId>
-        <artifactId>shiro-spring</artifactId>
-        <version>${shiro.version}</version>
-    </dependency>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
+    </dependencies>
 ```
 
 ### 准备 Spring 配置文件
@@ -95,7 +163,85 @@ spring:
 
 ### 创建数据库表
 
-随意创建一个数据库，这里取名为 shiro，然后在创建用户表
+> [!TIP]
+>
+> shiro内置的有JDBCRealm，因此shiro有一套自己的数据库表的规范，如果你要使用该Realm，则必须按照如下规范创建表结构。
+
+```sql
+用户信息表：users
+create table users(
+	id int primary key auto_increment,
+	username varchar(60) not null unique,
+	password varchar(20) not null,
+	password_salt varchar(20)
+);
+用户角色表：user_roles
+create table user_roles(
+	id int primary key auto_increment,
+    username varchar(60) not null,
+    role_name varchar(100) not null
+);
+权限信息表：roles_permissions
+create table roles_permissions(
+	id int primary key auto_increment,
+    role_name varchar(100) not null,
+    permission varchar(100) not null
+);
+```
+
+> [!TIP]
+>
+> 如果你使用不一样的表结构，那么就要实现你自己的Realm实现认证和授权的方法，通常是这样的
+
+```java
+@Component("userRealm")
+public class UserRealm extends AuthorizingRealm {
+
+    @Autowired
+    private IUserService iUserService;
+
+
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        String username = token.getUsername();
+        QueryWrapper<UserPO> wrapper = Wrappers.query();
+        wrapper.eq("name", username);
+        UserPO one = iUserService.getOne(wrapper);
+        if (Objects.isNull(one)) {
+            throw new BusinessException("用户名不存在");
+        }
+        ByteSource source = ByteSource.Util.bytes(one.getSalt());
+        return new SimpleAuthenticationInfo(one, one.getPassword(), source, getName());
+    }
+
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+//        //获取用户的用户名
+//        String username  = (String) principalCollection.iterator().next();
+//        //根据用户名查询用户角色
+//        Set<String> roles = roleDao.getRoleNamesByUsername(username);
+//        //根据用户名查询用户权限
+//        Set<String> permissions = permissionDao.getPermissionByUsername(username);
+//        SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
+//        info.setRoles(roles);
+//        info.setStringPermissions(permissions);
+//        return info;
+        
+        //如上代码是常规的授权逻辑，以下只是一个简单授权操作的测试 // [!code highlight]
+        
+        //用自定义的字符串进行授权，模拟数据库查询用户的权限授权
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+        Set<String> permissions = new HashSet<>();
+        permissions.add("user:delete"); //给用户添加一个权限，下面的权限和该权限进行对照，在shiro配置中配置这两个路径需要权限这两个权限字段，可以采用shiro中提供的spring注解完成
+//        permissions.add("user:update");
+        info.addStringPermissions(permissions);
+        return info;
+    }
+}
+```
+
+创建一个数据库，这里取名为 shiro，只创建用户表进行测试
 
 ```sql
 DROP TABLE IF EXISTS `user`;
@@ -161,45 +307,46 @@ public class UserRealm extends AuthorizingRealm {
 
 ### 创建Shiro配置类
 
-创建配置类，在
+创建配置类
 
 ```java :collapsed-lines=1
 @Configuration
 public class ShiroConfig {
+    @Bean
+    public IniRealm getIniRealm(){
+        IniRealm iniRealm=new IniRealm("classpath:shiro.ini");
+        return iniRealm;
+    }
+    @Bean
+    public DefaultWebSecurityManager getDefaultWebSecurityManager(IniRealm iniRealm){
+        DefaultWebSecurityManager securityManager=new DefaultWebSecurityManager();
+        //securityManager要完成校验，需要realm
+        securityManager.setRealm(iniRealm);
+        return securityManager;
+    }
+    @Bean
+    public ShiroFilterFactoryBean getShiroFilterFactoryBean(DefaultWebSecurityManager defaultWebSecurityManager){
+        ShiroFilterFactoryBean filter=new ShiroFilterFactoryBean();
+        filter.setSecurityManager(defaultWebSecurityManager);
+        //设置shiro的拦截规则
+        //anon 匿名用户可访问   authc  认证用户可访问
+        //user 使用RemeberMe的用户可访问  perms  对应权限可访问
+        //role  对应的角色可访问
+        Map<String,String> filterMap=new HashMap<>();
+        filterMap.put("/","anon");
+        filterMap.put("/login.html","anon");
+        filterMap.put("/register.html","anon");
+        filterMap.put("/user/login","anon");
+        filterMap.put("/user/register","anon");
+        filterMap.put("/static/**","anon");
+        filterMap.put("/**","authc");
+        filter.setFilterChainDefinitionMap(filterMap);
 
-	/**
-	 * 配置安全管理器
-	 * @param userRealm UserRealm
-	 * @return DefaultWebSecurityManager
-	 */
-	@Bean
-	public DefaultWebSecurityManager securityManager(UserRealm userRealm) {
-   	 	DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
- 
-   	 	securityManager.setRealm(userRealm);
- 
-    	return securityManager;
-	}
- 
-	/**
-	 * 配置Shiro过滤器工厂
- 	 * @param securityManager 安全管理器
- 	 * @return ShiroFilterFactoryBean
- 	 */
-	@Bean
-	public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager securityManager) {
-    	ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
- 
-    	// 注册安全管理器
-    	shiroFilterFactoryBean.setSecurityManager(securityManager);
- 
-    	/** 
-    	  设置登录页面的地址
-     	  当用户访问认证资源的时候，如果用户没有登录，那么就会跳转到该属性指定的页面
-     	*/
-    	shiroFilterFactoryBean.setLoginUrl("/login.html");
-    	return shiroFilterFactoryBean;
-  }
+        filter.setLoginUrl("/login.html");
+        //设置未授权页面跳转到登录页面
+        filter.setUnauthorizedUrl("/login.html");
+        return filter;
+    }
 }
 ```
 
@@ -275,10 +422,6 @@ public class UserServiceImpl implements IUserService {
  
 }
 ```
-
-> [!NOTE]
->
-> 当调用 `Subject `的 `login()` 方法时，会执行 UserRealm 的认证方法 `doGetAuthenticationInfo()`
 
 ### 在UserRealm实现认证方法
 
@@ -384,7 +527,7 @@ public class UserRealm extends AuthorizingRealm {
 ```
 
 #### 创建 login.js 文件：
- 
+
 ```js :collapsed-lines=1
 $(document).ready(function () {
     $("#login").click(function () {
@@ -446,64 +589,6 @@ $(document).ready(function () {
 </html>
 ```
 
-#### 配置 ShiroConfig.java
-
-```java  :collapsed-lines=1
-@Configuration
-public class ShiroConfig {
-/**
- * 配置安全管理器
- * @param userRealm UserRealm
- * @return DefaultWebSecurityManager
- */
-@Bean
-public DefaultWebSecurityManager securityManager(UserRealm userRealm) {
-    DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
- 
-    securityManager.setRealm(userRealm);
- 
-    return securityManager;
-}
- 
-/**
- * 配置Shiro过滤器工厂
- * @param securityManager 安全管理器
- * @return ShiroFilterFactoryBean
- */
-@Bean
-public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager securityManager) {
-    ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
- 
-    // 注册安全管理器
-    shiroFilterFactoryBean.setSecurityManager(securityManager);
- 
-    /*
-     * 设置登录页面的地址
-     * 当用户访问认证资源的时候，如果用户没有登录，那么就会跳转到指定的页面
-     */
-    shiroFilterFactoryBean.setLoginUrl("/login.html");    
- 
-    // 定义资源访问规则
-    Map<String, String> map = new LinkedHashMap<>();        //[!code ++]
- 
-    /*
-     * 过滤器说明
-     * anon：不需要认证就可以访问的资源
-     * authc：需要登录认证才能访问的资源
-     */
-    map.put("/html/home.html", "authc");                   //[!code ++]
- 
-    // 不需要认证就能访问
-    map.put("/login.html", "anon");                        //[!code ++]
-    map.put("/user/login", "anon");                        //[!code ++]
- 
-    shiroFilterFactoryBean.setFilterChainDefinitionMap(map);  //[!code ++]
- 
-    return shiroFilterFactoryBean;
-	}
-}
-```
-
 > [!NOTE]
 >
 > 接下来访问  `localhost:${application.port}/login.html` 这个地址，输入用户信息登录，如果身份验证成功跳转至主页 `home.html`  。
@@ -516,43 +601,7 @@ public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager securityMana
 
 > [!NOTE]
 >
-> UserRealm里的doGetAuthorizationInfo()方法中实现授权的代码，查询用户的权限保存到shiro中，
-
-```java :collapsed-lines=1
-@Component
-public class UserRealm extends AuthorizingRealm {
- 
-    private final UserMapper userMapper;
- 
-    @Autowired
-    public UserRealm(UserMapper userMapper) {
-        this.userMapper = userMapper;
-    }
- 
-    /**
-     * 认证
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) {
-        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
- 		//... 此处省略
-    }
- 
-    /**
-     * 授权
-     */
-    @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();  // [!code ++]
-        Set<String> permissions = new HashSet<>();// [!code ++]
-        permissions.add("/user/delete");// [!code ++]
-        permissions.add("/user/update");// [!code ++]
-        authorizationInfo.setStringPermissions(permissions);// [!code ++]
-        return authorizationInfo;// [!code ++]
-    }
- 
-}
-```
+> UserRealm里的doGetAuthorizationInfo()方法中实现授权的代码，查询用户的权限保存到shiro中。
 
 ### UserController 中添加对应接口
 
@@ -570,136 +619,25 @@ public class UserController {
         return R.success();
     }
  
-    @RequestMapping(path = "/delete", method = RequestMethod.POST)
-    public R<Void> delete() {         //[! code++]
-        return R.success("删除成功");
     
- 
-    @RequestMapping(path = "/update", method = RequestMethod.POST)
-    public R<Void> update() { //[! code++]
-        return R.success("修改成功");
+    @PostMapping("delete")
+    @RequiresPermissions("user:delete")
+    public R delete() {
+        return R.success("删除用户成功");
+    }
+
+
+    @PostMapping("update")
+    @RequiresPermissions("user:update")//这里在realm中是没为用户提供权限的，所以会访问失败
+    public R add() {
+        return R.success("更新用户成功");
     }
  
 }
 
-```
 
-### home.html 
-
-```html :collapsed-lines=1
-<button type="button" id="delete">删除</button> | <button type="button" id="update">修改</button>
-<script>
-            $(function () {                      
-                $("#delete").click(function () {
-                    $.post("/user/delete", function (resp) {
-                        alert(resp.message);
-                    });
-                });
- 
-                $("#update").click(function () {
-                    $.post("/user/update", function (resp) {
-                        alert(resp.message);
-                    });
-                });
- 
-            });
-</script>
-```
-
-### 自定义过滤器实现授权
-
-```java :collapsed-lines=1
-/**
- *  权限验证的过滤器，在shiro中配置集成使用
- * @author Wu Chen
- * @date 2024-10-20 19:43
- */
-@WebFilter
-public class AuthorizationFilter implements Filter {
-    @Override
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
-        HttpServletRequest request = (HttpServletRequest) req;
-        String requestURI = request.getRequestURI();
-        //shiro工具获取当前subject
-        Subject subject = SecurityUtils.getSubject();
-
-        // 检查用户是否未认证
-        if (subject == null || !subject.isAuthenticated()) {
-            handleUnauthenticated(request, (HttpServletResponse) resp);
-            return;
-        }
-
-        // 检查用户是否具有访问特定资源的权限
-        if (!subject.isPermitted(requestURI)) {
-            handleUnauthorized(request, (HttpServletResponse) resp);
-            return;
-        }
-
-        chain.doFilter(req, resp);
-    }
-
-    private void handleUnauthenticated(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json;charset=utf-8");
-        R<Void> result = R.fail(ResponseCode.UNAUTHORIZED);
-        String data = JSON.toJSONString(result);
-        response.getWriter().write(data);
-    }
-
-    private void handleUnauthorized(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/json;charset=utf-8");
-        R<Void> jsonResult = R.fail(ResponseCode.ACCESS_DENIED);
-        String data = JSON.toJSONString(jsonResult);
-        response.getWriter().write(data);
-    }
-}
-```
-
-### ShiroConfig 中配置过滤器：
-
-
-
-```java :collapsed-lines=1
-@Bean
-    public ShiroFilterFactoryBean shiroFilter(DefaultWebSecurityManager securityManager) {
-        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
- 
-        // 注册安全管理器
-        shiroFilterFactoryBean.setSecurityManager(securityManager);
- 
-        /*
-         * 设置登录页面的地址
-         * 当用户访问认证资源的时候，如果用户没有登录，那么就会跳转到指定的页面
-         */
-        shiroFilterFactoryBean.setLoginUrl("/login.html");
- 
-        // 定义资源访问规则
-        Map<String, String> map = new LinkedHashMap<>();
- 
-        /*
-         * 过滤器说明
-         * anon：不需要认证就可以访问的资源
-         * authc：需要登录认证才能访问的资源
-         */
-        map.put("/html/home.html", "authc");
- 
-        // 不需要认证就能访问
-        map.put("/login.html", "anon");
-        map.put("/user/login", "anon");
- 
-        // 设置自定义过滤器
-        map.put("/user/delete", "authorization");//[! code++]
-        map.put("/user/update", "authorization");//[! code++]
- 
- 
-        Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();  //[! code++]
-        filters.put("authorization", new AuthorizationFilter());  //[! code++]
-        shiroFilterFactoryBean.setFilters(filters);//[! code++]
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
- 
-        return shiroFilterFactoryBean;
-}
 ```
 
 ### 测试
 
-访问对应接口，只有拥有realm的授权方法中的权限才可以访问。
+用 postman 访问对应接口，只有拥有realm的授权方法中的权限才可以访问。

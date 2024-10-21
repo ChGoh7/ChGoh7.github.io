@@ -76,6 +76,13 @@ const frontEndNote = defineNoteConfig({
     sidebar: 'auto'
 })
 
+const SystemdesignNote = defineNoteConfig({
+    text: '系统设计',
+    dir: '系统设计/',
+    link: 'notes/系统设计/',
+    sidebar: 'auto'
+})
+
 
 export default defineThemeConfig({
     logo: '/images/logo.png',
@@ -91,7 +98,7 @@ export default defineThemeConfig({
         dir: '/notes/', // 声明所有笔记的目录
         link: '/', // 声明所有笔记默认的链接前缀， 默认为 '/'
         notes: [
-            JavaNote, frameworkNote, DataBasesNote, DistributedNote, HPNote, HANote, DevOpsNote, ProjectGuideNote, frontEndNote
+            JavaNote, frameworkNote, DataBasesNote, DistributedNote, HPNote, HANote, DevOpsNote, ProjectGuideNote, frontEndNote, SystemdesignNote
         ]
     },
     sidebar: {
