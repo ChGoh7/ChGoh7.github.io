@@ -451,11 +451,11 @@ public class ShiroConfig {
 
  当用户认证进入到主页之后，需要显示用户信息及当前用户的权限信息，shiro提供了一套标签用于在页面来进行权限数据的呈现
 
-Shiro提供了可供JSP使用的标签以及Thymeleaf标签
+Shiro提供了可供使用的标签以及Thymeleaf标签
 
-*   JSP页面中引用
+*   页面中引用
     
-    ```jsp
+    ```
     <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
     ```
     
@@ -491,7 +491,7 @@ Shiro提供了可供JSP使用的标签以及Thymeleaf标签
         
     *   Thymeleaf模板中引入shiro的命名空间
     
-        ```jsp
+        ```
         <html xmlns:th="http://www.thymeleaf.org"
           xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
         </html>
@@ -1219,7 +1219,6 @@ public String register(String username,String password){
 }
 ```
 ~~~
-
 
 ##### 5.2 密码认证
 

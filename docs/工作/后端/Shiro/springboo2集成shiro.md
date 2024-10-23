@@ -641,3 +641,8 @@ public class UserController {
 ### 测试
 
 用 postman 访问对应接口，只有拥有realm的授权方法中的权限才可以访问。
+
+
+
+
+

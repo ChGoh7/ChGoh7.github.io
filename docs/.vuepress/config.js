@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-21 09:03:50
+ * @LastEditTime: 2024-10-23 10:43:11
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -39,13 +39,13 @@ export default defineUserConfig({
             search: false,
             //搜索插件
             docsearch: {
-                appId: '6uhiq8yoat',
-                apiKey: 'ba57eb4f0385f95ebe4e4287fd4d4e27',
-                indexname: 'chgoh7',
+                appId: '6UHIQ8YOAT',
+                apiKey: '61abb76a2c31f20685ff48084a4f5204',
+                indexname: 'chgoh7-docs-index',
             }, readingtime: {
                 wordperminute: 300
             },
-            markdownenhance: {
+            markdownEnhance: {
                 hint: true, // 提示容器
                 codetabs: true, // 代码组
                 tabs: true, // 选项卡
@@ -59,6 +59,7 @@ export default defineUserConfig({
                 footnote: true, // 注脚语法
                 katex: true, // 数学公式
 
+                mermaid: true,
                 // 以下可选项在 主题中默认不启用，
 
 
@@ -85,7 +86,9 @@ export default defineUserConfig({
             },
             // 支持各种语言代码高亮
             shiki: {
-                languages: ["markdown", "js", "html", "java", "sql", "yaml", "cmd", "properties", "xml", "bash", "go", "c", "shell", "c++", "python", "javascript", "json", "awk", "vue", "css"],
+                languages: ["markdown", "js", "html", "java", "sql", "yaml", "cmd", "properties",
+                    "xml", "bash", "go", "c", "shell", "c++", "python",
+                    "javascript", "json", "awk", "vue", "css", "mermaid", "mmd"],
             }
         }
     }),
