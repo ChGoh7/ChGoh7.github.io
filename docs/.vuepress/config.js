@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-23 10:43:11
+ * @LastEditTime: 2024-10-29 08:31:39
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -36,13 +36,14 @@ export default defineUserConfig({
             },
             //本地搜索和algolia提供的搜索不能同时配置否则会覆盖algolia的搜索插件
             //默认是开启了本地搜索插件
-            search: false,
+            search: true,
             //搜索插件
-            docsearch: {
-                appId: '6UHIQ8YOAT',
-                apiKey: '61abb76a2c31f20685ff48084a4f5204',
-                indexname: 'chgoh7-docs-index',
-            }, readingtime: {
+            // docsearch: {
+            //     appId: '6UHIQ8YOAT',
+            //     apiKey: 'ba57eb4f0385f95ebe4e4287fd4d4e27',
+            //     indexname: 'chgoh7',
+            // },
+            readingtime: {
                 wordperminute: 300
             },
             markdownEnhance: {
