@@ -1,3 +1,8 @@
+---
+title: Spring注解
+createTime: 2024/11/02 10:10:36
+permalink: /notes/Frameworks/y4q0r23z/
+---
 | 注解                            | 解释                                                         |
 | ------------------------------- | ------------------------------------------------------------ |
 | @Controller                     | 组合注解（组合了@Component注解），应用在MVC层（控制层）,DispatcherServlet会自动扫描注解了此注解的类，然后将web请求映射到注解了@RequestMapping的方法上。 |

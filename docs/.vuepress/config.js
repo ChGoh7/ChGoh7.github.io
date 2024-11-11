@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-29 08:31:39
+ * @LastEditTime: 2024-11-11 17:21:50
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -19,6 +19,9 @@ export default defineUserConfig({
     base: '/',
     theme: plumeTheme({
         // hostname: 'http://chgoh7.site',
+             changelog: {
+            maxCount: 10,
+        },//git 修改历史记录
         plugins: {
             comment: {
                 provider: 'Giscus', // "artalk“ | "Giscus" | "twikoo" | "waline"
@@ -90,8 +93,13 @@ export default defineUserConfig({
                 languages: ["markdown", "js", "html", "java", "sql", "yaml", "cmd", "properties",
                     "xml", "bash", "go", "c", "shell", "c++", "python",
                     "javascript", "json", "awk", "vue", "css", "mermaid", "mmd"],
-            }
-        }
+            },
+            // plugin-git
+            // 如果您在此处直接声明为 true，则表示开发环境和生产环境都启用该功能
+            // git: process.env.NODE_ENV === 'production'
+            git: true
+        },
+
     }),
     alias: {
         '@theme/Blog/VPShortPostList.vue': path.resolve(
