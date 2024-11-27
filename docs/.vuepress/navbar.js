@@ -61,6 +61,11 @@ export default defineNavbarConfig(
                     text: '前端',
                     icon: 'nimbus:browser',
                     link: 'frontend/',
+                },
+                {
+                    text:'互联网',
+                    icon:'mdi:web',
+                    link:'web/'
                 }
             ]
         },
@@ -74,6 +79,7 @@ export default defineNavbarConfig(
             icon: 'ep:memo',
             link: 'Memorandum/'
         },
+
         {
             text: '探索',
             icon: 'carbon:ibm-watson-discovery',
