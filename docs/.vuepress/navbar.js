@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:47:03
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-15 20:19:10
+ * @LastEditTime: 2024-12-22 19:21:14
  * @FilePath: \it-docs\docs\.vuepress\navbar.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -86,6 +86,10 @@ export default defineNavbarConfig(
             prefix: '/Discovery/',
             items: [
                 { text: '解决方案', icon: 'ant-design:solution-outlined', link: 'Solutions/' },
+                {
+                    text: 'FAQ', icon: 'wpf:faq', link: 'FAQ/'
+                },
+                {text:'演练场',link:'Playground/'},
                 {
                     text: '实用工具', icon: 'carbon:tool-kit', link: 'MyTools/'
                 },

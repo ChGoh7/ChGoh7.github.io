@@ -1,5 +1,8 @@
 ---
 title: 疏忽mybatis实体映射字段的问题
+tags:
+ - MyBatis
+ - FAQ
 createTime: 2024/10/23 19:02:47
 permalink: /article/vpl9q23f/
 ---

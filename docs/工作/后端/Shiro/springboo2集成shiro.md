@@ -2,6 +2,8 @@
 title: springboo2集成shiro
 createTime: 2024/10/20 21:40:53
 permalink: /article/l3s7joo9/
+tags:
+ - solution
 ---
 ## 简介
 

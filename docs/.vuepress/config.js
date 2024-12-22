@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-11-11 17:21:50
+ * @LastEditTime: 2024-12-22 22:09:59
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -50,26 +50,9 @@ export default defineUserConfig({
                 wordperminute: 300
             },
             markdownEnhance: {
-                hint: true, // 提示容器
-                codetabs: true, // 代码组
-                tabs: true, // 选项卡
-                align: true, // 对齐容器
-                mark: true, // 标记语法
-                tasklist: true, // 任务列表语法
-                attrs: true, // 属性语法
-                sup: true, // 上标语法
-                sub: true, // 下标语法
-                alert: true, // gfm 通知语法
-                footnote: true, // 注脚语法
-                katex: true, // 数学公式
-
                 mermaid: true,
                 // 以下可选项在 主题中默认不启用，
-
-
-                // 以下可选项在 主题中默认不启用，
                 // 请在主题中自行配置
-                include: true, // markdown 导入支持
                 // figure: true, // 启用图片 figure 支持
                 // imglazyload: true, // 使用原生方式懒加载页面图片
                 // imgmark: true, // 浅色/深色 图片标记

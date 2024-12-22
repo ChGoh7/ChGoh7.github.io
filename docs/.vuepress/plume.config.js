@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:44:40
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-10-15 20:30:57
+ * @LastEditTime: 2024-12-22 20:12:57
  * @FilePath: \it-docs\docs\.vuepress\plume.config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -126,11 +126,14 @@ export default defineThemeConfig({
             { text: '开发工具', link: '开发工具/' },
             { text: '实用工具和插件', link: '实用工具和插件/' }
         ],
-        '/Discovery/Solutions/': [
-            {
+        '/Discovery/Playground/':[
+             {text:'git',link:'https://learngitbranching.js.org/?locale=zh_CN'}
+        ],
+        '/Discovery/FAQ/':[ 
+              {
                 text: '编程相关', prefix: 'programming/', items: [
                     {
-                        text: '关于编程', link: '/Discovery/Solutions/programming/'
+                        text: '关于编程', link: '/Discovery/FAQ/programming/'
                     },
                     {
                         text: 'Java', link: 'java/'
@@ -148,9 +151,9 @@ export default defineThemeConfig({
                     }
                 ]
             }, {
-                text: '工作相关', prefix: 'work/', collapsed: true, items: [
+                text: '工作相关', prefix: 'work/',items: [
                     {
-                        text: '关于工作', link: '/Discovery/Solutions/work/',
+                        text: '关于工作', link: '/Discovery/FAQ/work/',
                     },
                     {
                         text: '面试', link: 'interview/',
@@ -159,6 +162,14 @@ export default defineThemeConfig({
                         text: '远程工作', link: 'remote-job/'
                     },
                 ]
+            },
+        ],
+        '/Discovery/Solutions/': [
+            {
+                text: '互联网解决方案', link: 'internet-field-solution/'
+            },
+            {
+                text: '网站建设', link: 'build-a-website/'
             },
             {
                 text: '思维模型相关', prefix: 'mental-model/', collapsed: true, items: [

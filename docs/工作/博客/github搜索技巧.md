@@ -3,7 +3,7 @@ title: github搜索技巧
 createTime: 2024/09/23 18:04:20
 permalink: /article/bhxk3wh5/
 tags:
- - 技巧
+ - solution
 ---
 
 > 部分转载自[Jack_孟-10个技巧，3分钟教会你github高效寻找开源项目](https://www.cnblogs.com/mq0036/p/18047518) 

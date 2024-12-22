@@ -2,6 +2,9 @@
 title: 开启代理后，域名和nginx访问问题
 createTime: 2024/10/24 12:25:51
 permalink: /article/nkawrlf7/
+tags:
+  - vpn
+  - FAQ
 ---
 开启代理后，解决开启vpn代理后无法访问hosts域名以及Nginx
 ============================

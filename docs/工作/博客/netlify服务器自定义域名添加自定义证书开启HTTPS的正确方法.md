@@ -2,6 +2,7 @@
 title: netlify服务器自定义域名添加自定义证书开启HTTPS的正确方法
 tags:
   - CDN
+  - solution
 createTime: 2024/08/28 19:53:27
 permalink: /article/sst2v5ef/
 ---

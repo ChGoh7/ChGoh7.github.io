@@ -1,6 +1,7 @@
 ---
 tags:
   - 会话技术
+  - solution
 title: Cookie在前端写还是后端
 createTime: 2024/10/07 18:34:58
 permalink: /article/s21amw3y/

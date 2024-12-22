@@ -4,6 +4,7 @@ createTime: 2024/09/20 15:12:59
 permalink: /article/ruc9bwwm/
 tags:
  - AIGC
+ - solution
 ---
 
 * [AIGC设计实践手册](https://www.woshipm.com/pd/5991829.html)

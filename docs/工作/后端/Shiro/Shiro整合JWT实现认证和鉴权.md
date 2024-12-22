@@ -2,6 +2,8 @@
 title: Shiro整合JWT实现认证和鉴权
 createTime: 2024/10/24 14:02:13
 permalink: /article/gze2mf06/
+tags:
+ - solution
 ---
 > 文章转载自https://developer.aliyun.com/article/1296302
 

@@ -2,6 +2,8 @@
 title: 在浏览器遇到Unexpected token in JavaScript
 createTime: 2024/10/21 20:02:46
 permalink: /article/m8wbej2e/
+tags:
+  - FAQ
 ---
 > 转载自https://bobbyhadz.com/blog/javascript-uncaught-syntaxerror-unexpected-token#syntaxerror-unexpected-token--doctype--is-not-valid-json
 

@@ -2,7 +2,7 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-10-20 11:14:38
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-11-11 17:20:29
+ * @LastEditTime: 2024-12-22 23:35:46
  * @FilePath: \ChGoh7.github.io\docs\.vuepress\components\ShortPostList.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -41,12 +41,14 @@ defineProps({
   color: var(--vp-c-text-1);
   transition: color var(--vp-t-color);
   /* 自定义的 */
-  border-left: 2px solid #27272a;
+  border-left: 2px solid var(--vp-c-text-3);
   position: relative;
   text-indent: 2em;
   padding: 8px;
   perspective: 100px;
 }
+
+
 /* 自定义的 */
 .time-line-before::before{
     content: "";
@@ -54,21 +56,27 @@ defineProps({
     left: 0;
     top: 50%;
     transform: translate(-50%,-50%);
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
+    /*贴在2px的border中间*/
+    margin-left: -1px;
     border-radius: 50%;
     background-color: var(--vp-c-text-1);
 }
 
 .time-line-before:hover::before{
   font-weight: 500;
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 16px;
+  border-radius: 10px;
   background-color: var(--vp-c-brand-1);
   transition: all .3s;
+
 }
-
-
+.time-line-before:hover{
+  border-bottom: 3px dotted var(--vp-c-brand-1);
+}
+  /* border-bottom: 2px dotted var(--vp-c-text-3); */
 .vp-blog-short-post-list .post-title {
   display: -webkit-box;
   flex: 1;
