@@ -3,7 +3,7 @@ title: 记一次UnavailableSecurityManagerException异常
 createTime: 2024/10/20 21:14:53
 permalink: /article/xm0r5f3q/
 tags:
- - Shiro
+ - Apache Shiro
  - FAQ
 ---
 ## 问题背景

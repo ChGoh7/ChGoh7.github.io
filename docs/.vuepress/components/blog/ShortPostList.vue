@@ -2,24 +2,42 @@
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-10-20 11:14:38
  * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-12-22 23:35:46
+ * @LastEditTime: 2024-12-24 13:48:50
  * @FilePath: \ChGoh7.github.io\docs\.vuepress\components\ShortPostList.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <script  setup>
 import VPLink from '@theme/VPLink.vue'
-defineProps({
-  postList:[]
+import { ref,onMounted } from 'vue'
+const prop = defineProps({
+  postList:Array
+})
+const  timelineRef = ref(null)
+const postTitleRef = ref(null)
+
+function renderTimeLine(){
+for (let i = 0; i < postTitleRef.value.length; i++) {
+  postTitleRef.value[i].addEventListener('mouseenter',()=>{
+    timelineRef.value[i].classList.add('time-line-before-hover')
+  })
+  postTitleRef.value[i].addEventListener('mouseleave',()=>{
+    timelineRef.value[i].classList.remove('time-line-before-hover')
+  })
+}
+}
+onMounted(()=>{
+  renderTimeLine()
 })
 </script>
 
 <template>
   <ul class="vp-blog-short-post-list">
-    <li v-for="post in postList" :key="post.path" class="time-line-before">
-            <p class="post-title">
+    <li v-for="post in postList" :key="post.path" ref="timelineRef" class="time-line-before">
+            <p class="post-title" ref="postTitleRef">
                 <VPLink class="post-link" :href="post.path">
                 {{ post.title }}
                 </VPLink>
+                <div class="post-underline"></div>
             </p>
             <span class="post-time">{{ post.createTime }}</span>
     </li>
@@ -47,7 +65,10 @@ defineProps({
   padding: 8px;
   perspective: 100px;
 }
-
+.post-link{
+  display: block;
+  width: 100%;
+}
 
 /* 自定义的 */
 .time-line-before::before{
@@ -63,21 +84,39 @@ defineProps({
     border-radius: 50%;
     background-color: var(--vp-c-text-1);
 }
-
-.time-line-before:hover::before{
+ .time-line-before-hover:before{
   font-weight: 500;
   width: 8px;
   height: 16px;
   border-radius: 10px;
   background-color: var(--vp-c-brand-1);
   transition: all .3s;
+}
+@keyframes time-line-border-b-ani{
+  /* 实现底部边框从左到右渐渐出现 */
+  0%{
+    width: 0;
+  }
+  100%{
+    width: 100%;
+  }
+}
 
+
+.post-title:hover .post-underline{
+  position: absolute;
+  left: 14px;
+  bottom:0;
+  height: 2px;
+  background-color:  var(--vp-c-brand-1);
+  animation: time-line-border-b-ani  1s ease-in-out;
+  animation-fill-mode: forwards;
 }
-.time-line-before:hover{
-  border-bottom: 3px dotted var(--vp-c-brand-1);
-}
+
+
   /* border-bottom: 2px dotted var(--vp-c-text-3); */
 .vp-blog-short-post-list .post-title {
+  position: relative;
   display: -webkit-box;
   flex: 1;
   margin-right: 14px;
@@ -88,11 +127,8 @@ defineProps({
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   line-clamp: 1;
-  /* 自定义 */
   font-weight: 200;
 }
-
-
 
 .vp-blog-short-post-list .post-time {
   color: var(--vp-c-text-3);
@@ -100,13 +136,13 @@ defineProps({
 }
 
 
-.vp-blog-short-post-list li:hover .post-title {
+.post-title:hover {
   transform: translateZ(4px);
   font-weight: 500;
   color: var(--vp-c-brand-1);
 }
 
-.vp-blog-short-post-list li:hover .post-time {
+.post-title:hover .post-time {
   font-weight: 500;
   color: var(--vp-c-text-1);
 }
