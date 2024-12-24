@@ -1,0 +1,18 @@
+/* :root {
+  --vp-font-family-base:
+    "ZWZT",
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+} */
+@font-face {
+  font-family: "LXGW WenKai Screen";
+  src: url("../font/LXGWWenKaiScreen.ttf");
+}
+body{
+  font-family: "LXGW WenKai Screen",system-ui,"Microsoft Yahei","Segoe UI",-apple-system,Roboto,Ubuntu,"Helvetica Neue",Arial,"WenQuanYi Micro Hei",sans-serif;
+}
