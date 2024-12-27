@@ -28,6 +28,41 @@
 *   XMind：思维导图软件（[https://www.xmind.cn/）](https://gitee.com/link?target=https%3A%2F%2Fwww.xmind.cn%2F%25EF%25BC%2589)
 *   Qdir：Windows 多窗口管理器（[https://q-dir.en.softonic.com/）](https://gitee.com/link?target=https%3A%2F%2Fq-dir.en.softonic.com%2F%25EF%25BC%2589)
 
+
+
+
+
+## AI大模型
+
+<CardGrid>  
+
+<LinkCard  icon="https://ollama.com//favicon.ico" title="ollama" href="https://ollama.com/">Get up and running with large language models.
+Run Llama 3.3, Phi 3, Mistral, Gemma 2, and other models. Customize and create your own.
+
+</LinkCard> 
+
+</CardGrid>
+
+
+
+
+
+
+
+## 文件
+
+
+
+<CardGrid>  
+
+<LinkCard  icon="https://alist.nn.ci/favicon.ico" title="AList" href="https://alist.nn.ci">🗂️ 一个支持多种存储的文件列表程序，使用 Gin 和 Solidjs。
+
+</LinkCard> 
+
+</CardGrid>
+
+
+
 ## 图片
 
 ### 图床

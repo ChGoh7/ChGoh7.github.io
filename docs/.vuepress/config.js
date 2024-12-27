@@ -1,8 +1,8 @@
 /*
  * @Author: chgoh7 3180349973@qq.com
  * @Date: 2024-08-26 16:40:39
- * @LastEditors: chgoh7 3180349973@qq.com
- * @LastEditTime: 2024-12-24 14:14:45
+ * @LastEditors: wuchen 3180349973@qq.com
+ * @LastEditTime: 2024-12-25 23:24:02
  * @FilePath: \it-docs\docs\.vuepress\config.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -37,9 +37,11 @@ export default defineUserConfig({
                 darktheme: 'dark',
                 lighttheme: 'light'
             },
-            //内嵌pdf支持
-            markdownpower: {
+            markdownPower: {
                 pdf: true,
+                bilibili: true,
+                youtube: true,
+                audioReader: true,
             },
             //本地搜索和algolia提供的搜索不能同时配置否则会覆盖algolia的搜索插件
             //默认是开启了本地搜索插件
