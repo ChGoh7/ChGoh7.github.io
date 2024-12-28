@@ -2,6 +2,8 @@
 title: Hive实战
 createTime: 2024/12/04 09:57:18
 permalink: /article/px9f02go/
+tags:
+ - Hive
 ---
 ## HQL实战
 
@@ -593,7 +595,7 @@ stored as textfile;
 
 `alter table hive_wordcount rename to hive_wordcount666;`
 
-#### **增加/修改/替换列信息**
+#### **增加/修改/替换列信息**（标红重点为<font color='red'>**CHANGE和ADD|REPLACE**</font>）
 
 （1）更新列
 
@@ -799,7 +801,7 @@ as select deptno, dname, loc from dept_hdfs_external;
 
 8.查询emp表的员工编号、员工姓名、所属上级以及所属部门，将查询的结果格式化导出到本地目录：/opt/datas/export，
 
-字段与字段的分隔符为\t，**使用cat命令查看导出的结果**。
+字段与字段的分隔符为\t，**<font color='red'>使用cat命令查看导出的结果</font>**。
 
 ```sql
 insert overwrite local directory '/opt/datas/export'

@@ -2,6 +2,8 @@
 title: Hadoop期末复习
 createTime: 2024/12/27 15:33:52
 permalink: /article/1drkikqo/
+tags:
+ - Hadoop
 ---
 
 ## 大数据导论
@@ -43,11 +45,11 @@ https://zhuanlan.zhihu.com/p/111319675 （有兴趣可读）
 
 ## Hadoop
 
-> Hadoop是一个由Apache基金会所开发的分布式系统基础架构。  主要解决， 海量数据的存储和海量数据的分析计算问题
+> Hadoop是一个由Apache基金会所开发的分<font color='red'>布式系统基础架构</font>。  主要解决， <font color='red'>海量数据的存储和海量数据的分析计算</font>问题
 
 1. 创始人是Doug Cutting
 
-2. （必考）来源：Google三论文 Gfs MapReduce BigTable-HBASE
+2. （必考）来源：Google三论文 GFS MapReduce BigTable
 
 GFS --> HDFS 
 
@@ -59,11 +61,15 @@ BigTable --> HBase
 
 <img src="./Hadoop期末复习.assets/image-20241227183119795.png" alt="image-20241227183119795" style="zoom:50%;" />
 
-在 Hadoop1.x 时 代 ，Hadoop中的MapReduce同时处理业务逻辑运算和资源的调度， 耦合性较大。 
+在 Hadoop1.x 时 代 ，MapReduce同时处理业务逻辑运算和资源的调度， 耦合性较大。 
 
-在Hadoop2.x时代， 增加了Yarn。 Yarn只负责资 源 的 调 度 ，MapReduce 只负责运算。 
+在Hadoop2.x时代， 增加了Yarn。 Yarn只负责资源的调度 ，MapReduce 只负责运算。 
 
-Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有差异，后续课程提到。
+Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有差异，具体表现为：
+
+  	**支持多个NameNode**：Hadoop 3.x支持两个以上的NameNode，提高了群集的容错能力。
+
+​	**DataNode内部负载均衡**：Hadoop 3.x在DataNode内部添加了负载均衡功能，以优化数据存储和访问性能。
 
 4. 运行模式：本地、完全分布式\伪分布式
 
@@ -73,13 +79,15 @@ Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有�
 
 	完全分布式模式：多台服务器组成分布式环境。生产环境使用。
 
-5. 历史服务器
+4. 历史服务器
 
 	查看程序的历史运行情况，具体配置步骤:
 
 	1. 配置 mapred-site.xml
 
 		`[whuc@hadoop102 hadoop-3.1.3]$ cd etc/hadoop/ [whuc@hadoop102 hadoop]$ vim mapred-site.xml 添加如下到configuration标记对中`
+
+		
 
 		```xml
 		<!-- 历史服务器端地址 -->
@@ -100,9 +108,19 @@ Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有�
 
 	3. 在103停掉yarn服务，重启
 
-		`[whuc@hadoop102 hadoop]$ ssh hadoop103 jps 6304 NodeManager 5717 DataNode 7917 Jps 6175 ResourceManager ## 有ResourceManager ，表示yarn是启动的`
+		`[whuc@hadoop102 hadoop]$ ssh hadoop103 jps `
+		6304 NodeManager 
 
-		`[whuc@hadoop102 hadoop]$ ssh hadoop103 Last login: Sat Jul 24 15:24:04 2021 from hadoop102`
+		5717 DataNode 7917 
+
+		Jps 
+
+		6175 ResourceManager
+
+		#有ResourceManager ，表示yarn是启动的
+
+		`[whuc@hadoop102 hadoop]$ ssh hadoop103`
+		Last login: Sat Jul 24 15:24:04 2021 from hadoop102
 
 		（1）切换目录
 
@@ -136,12 +154,14 @@ Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有�
 
 	5. 查看web端，http://hadoop102:19888/jobhistory
 
-6. 时间同步服务器
+5. 时间同步服务器
 
 时间同步问题
 
-- 如果服务器在公网环境（能连接外网），可以不采用集群时间同步，因为服务器会定期和公网时间进行校 准；
-- 如果服务器在内网环境，必须要配置集群时间同步，否则时间久了，会产生时间偏差，导致集群执行任务时 间不同步。
+- 如果服务器在公网环境（能连接外网），可以不采用集群时间同步，因为服务器会定期和公网时间进行校准；
+- 如果服务器在内网环境，必须要配置集群时间同步，否则时间久了，会产生时间偏差，导致集群执行任务时间不同步。
+
+
 
 需求；找一个机器，作为时间服务器，所有的机器与这台集群时间进行定时的同步， 生产环境根据任务对时间的准 确程度要求周期同步。 测试环境为了尽快看到效果，采用 1 分钟同步一次。
 
@@ -149,7 +169,7 @@ Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有�
 
  时间服务器配置、102（必须 root 用户）
 
-```cmd
+```cmd :collapsed-lines=1
 [root@hadoop102 ~]# yum install -y ntp
 [root@hadoop102 ~]# systemctl start ntpd
 [root@hadoop102 ~]# systemctl status ntpd
@@ -174,7 +194,7 @@ Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有�
 
 其他机器配置（必须 root 用户）
 
-```cmd
+```cmd :collapsed-lines=1
 ## 关闭103和104的ntp，以及开机不自启
 ## 如果没有ntp服务，此步骤可跳过
 [root@hadoop102 ~]# ssh hadoop103
@@ -208,7 +228,7 @@ ntpdate.x86_64 4.2.6p5-29.el7.centos.2 base
 
 计划任务，同步时间
 
-```cmd
+```cmd :collapsed-lines=1
 [root@hadoop103 ~]# crontab -e
 */1 * * * * /usr/sbin/ntpdate hadoop102
 [root@hadoop104 ~]# crontab -e
@@ -235,11 +255,11 @@ start-all.sh命令是 start-dfs.sh 与 start-yarn.sh 这两个命令的合并
 
 ## (必考)HDFS（Hadoop Distribute File System）
 
-
+> HDFS（Hadoop Distributed Filesystem）是一个易于扩展的<font color='red'>分布式文件系统</font>，运行在成百上千台低成本的机器上。
 
 1.组成部分：
 
-HDFS采用主/从（Master/Slave）架构，一般一个HDFS集群由一个NameNode、一个Secondary NameNode和多个DataNode组成。
+HDFS采用主/从（Master/Slave）架构，一般一个HDFS集群由一个<font color='red'>NameNode</font>、一个<font color='red'>Secondary NameNode</font>和多个<font color='red'>DataNode</font>组成。
 
 2.分别什么功能
 
@@ -247,21 +267,25 @@ NameNode（nn）Master
 
 > NameNode是HDFS集群的主节点，是一个中心服务器，负责存储和管理文件系统的元数据（节点信息）
 
-（1） 管理HDFS的名称空间
+（1） 管理HDFS的名称空间和数据块（ Block） 映射信息
+
 （2） 配置副本策略
-（3） 管理数据块（ Block） 映射信息
-（4） 处理客户端读写请求
+
+（3） 处理客户端读写请求
 
 Secondary NameNode （2nn）
 > Secondary NameNode辅助NameNode，分担其工作量，用于同步元数据信息
 
 （1）并非NameNode的热备。当NameNode挂掉的时候，并不能马上替换NameNode并提供服务
-（2）辅助NameNode， 分担其工作量， 比如定期合并Fsimage和Edits， 并推送给NameNode
+
+（2）辅助NameNode， 分担其工作量， 比如定期合并Fsimage（文件系统持久化存储）和Edits（Edits文件帮助HDFS维护其元数据的完整性和准确性）， 并推送给NameNode
+
 （3）在紧急情况下， 可辅助恢复NameNode
+
 （4）nn的高可用通常使用其他集群框架
 
 DataNode（dn）slave
-> DataNode是HDFS集群的从节点，存储实际的数据，汇报存储信息给NameNode
+> DataNode是HDFS集群的从节点，存储实际的数据，汇报存储信息给NameNode（见心跳机制）
 
 （1）接收nn指令
 （2）存储实际数据块
@@ -270,9 +294,13 @@ DataNode（dn）slave
 Client 客户端（命令行、浏览器等）
 
 （1）文件切分。 文件上传HDFS的时候， Client将文件切分成一个一个的Block， 然后进行上传
+
 （2）与NameNode交互， 获取文件的位置信息
+
 （3）与DataNode交互， 读取或者写入数据
+
 （4）Client提供一些命令来管理HDFS， 比如NameNode格式化
+
 （5）Client可以通过一些命令来访问HDFS，比如对HDFS增删查改操作
 
 
@@ -299,15 +327,15 @@ Client 客户端（命令行、浏览器等）
 
 缺点
 
-（1）不适合低延时数据访问
+（1）不适合<font color='red'>低延时</font>数据访问
 
 软件层面不支持
 
-（2）处理大量小文件很低效
+（2）处理大量<font color='red'>小文件很低效</font>
 
 DataNode存数据块，NameNode存数据块的元数据；每个数据块的索引额定占用NomeNode150byte空间。小文件过多，索引检索慢。
 
-（3）不支持并发写入、文件随机修改
+（3）<font color='red'>不支持并发写入</font>、<font color='red'>文件随机修改</font>
 
 数据只能同时一个写入；数据只能追加
 
@@ -315,9 +343,11 @@ DataNode存数据块，NameNode存数据块的元数据；每个数据块的索�
 
 4.副本机制
 
-
+HDFS的副本机制允许系统在存储节点出现故障时依然能够提供数据的持续访问，从而提高了大规模数据存储的可靠性。其核心思想是将数据分散存储在多个物理节点上，即使个别节点发生故障，也不会导致数据的丢失。每个存储在HDFS中的文件被分割成一系列的块（block），默认情况下每个块大小为128MB。这些块被复制多份，并分布在不同的数据节点（DataNode）中
 
 5.心跳机制
+
+HDFS的心跳机制是保证分布式文件系统中节点状态监测和数据完整性的重要手段。DataNode节点定期向NameNode发送心跳信号，报告其状态和存储信息。NameNode通过心跳信号监控DataNode的可用性，并在节点失效时重新分配数据块副本，确保数据的可用性和一致性。心跳机制还允许NameNode管理数据块的存储和复制，确保系统的高可用性和高性能。
 
 心跳是每 3 秒一次，心跳返回结果带有 NameNode 给该 DataNode 的命令如复制块数据到另一台机器，或删除某个数据块。 如果超过 10 分钟没有收到某个 DataNode 的心跳，则认为该节点不可用。
 
@@ -325,21 +355,21 @@ DataNode存数据块，NameNode存数据块的元数据；每个数据块的索�
 
 ==6.块大小和什么有关(可能是简答) => 存储介质== 重点
 
-* HDFS中的文件在物理上是分块存储 （ Block） ， 块的大小可以通过配置参数( dfs.blocksize） 来规定， 默
-	认大小在Hadoop2.x/3.x版本中是128M， 1.x版本中是64M。
-	假设在nn寻址时间为10ms，找到数据的时间也就是10ms。
-	砖家说：寻址时间为传输时间的1%时，是最佳状态
-	计算得出，传输时间为10ms/1%=1000ms=1s
-	目前机械硬盘读写速率80-100m/s,固态硬盘读写速率200-300m/s
-	找一个块的时间10ms，读写一个块的时间1秒，最佳状态
-	所以，dfs.blocksize默认为128M，也有设置为256M的，其原因是存储使用固态硬盘。
+* HDFS中的文件在物理上是分块存储 （ Block） ， 块的大小通过配置参数( dfs.blocksize） 来规定。
+  默认大小在Hadoop2.x/3.x版本中是128M， 1.x版本中是64M。
+  nn寻址时间为10ms，则找到数据的时间也就是10ms。
+  砖家说：寻址时间为传输时间的1%时，是最佳状态
+  计算得出，传输时间为10ms/1%=1000ms=1s
+  目前机械硬盘读写速率80-100m/s,固态硬盘读写速率200-300m/s
+  找一个块的时间10ms，读写（传输）一个块的时间1秒，最佳状态
+  所以，dfs.blocksize默认为128M，也有设置为256M的，其原因是存储使用固态硬盘。
 * 思考：为什么块的大小不能设置太小， 也不能设置太大？
 
-​	（1）HDFS的块设置太小， 会增加寻址时间， 程序一直在找块的开始位置； 
+​	（1）设置太小， 会增加寻址时间， 程序一直在找块的开始位置； 
 
-​	（2）如果块设置的太大， 从磁盘传输数据的时间会明显大于定位这个块开始位置所需的时间。 导致程序在处理这块数据时， 会非常慢。
+​	（2）设置太大， 从磁盘传输数据的时间会明显大于找到这个块开始位置所需的时间。 导致程序在处理这块数据时， 会非常慢。
 
-- 总结： HDFS块的大小设置主要取决于磁盘传输速率
+- 总结： HDFS块的大小设置主要取决于磁盘传输速率，最佳状态下 寻址时间或找到数据的时间 / 1% = 传输时间
 
 
 
@@ -409,7 +439,7 @@ www.taobao.com
 
 注意：命令行最后的两个路径，一个是hdfs文件系统的路径，一个是Linux文件系统的路径
 
-（2）-get：等同于 copyToLocal，生产环境更习惯用 ge
+（2）-get：等同于 copyToLocal，生产环境更习惯用 get
 
 - HDFS直接操作
 
@@ -467,7 +497,7 @@ Replication 1 set: /test01
 
 ![image-20241227191048277](./Hadoop期末复习.assets/image-20241227191048277.png)
 
-这里设置的副本数只是记录在 NameNode 的元数据中，是否真的会有这么多副本，还得看 DataNode 的数 量。因为目前只有 3 台设备，最多也就 3 个副本，只有节点数的增加到 10台时， 副本数才能达到 10。
+这里设置的副本数只是记录在 NameNode 的元数据中，是否真的会有这么多副本，还得看 DataNode 的数量。因为目前只有 3 台设备，最多也就 3 个副本，只有节点数的增加到 10台时， 副本数才能达到 10。
 
 
 
@@ -482,32 +512,263 @@ MapReduce主要包括Map（映射）和Reduce（规约）两部分。
 
 2.序列化 writable
 
+序列化就是把内存中的对象，转换成字节序列（或其他数据传输协议）以便于持久化和网络传输。
+
+反序列化就是将收到字节序列（或其他数据传输协议）或者是磁盘的持久化数据，转换成内存中的对象。
+
+Java 的序列化是一个重量级序列化框架（Serializable），一个对象被序列化后，会附带很多额外的信息（各 种校验信息， Header，继承体系等），不便于在网络中高效传输。 所以，Hadoop 自己开发了一套序列化机（Writable）。 
+
+Hadoop 序列化特点 
+
+（1）紧凑 ： 高效使用存储空间 （2）快速： 读写数据的额外开销小 （3）互操作： 支持多语言的交互
 
 
-3两种计算模型 map 和 reduce
+
+3. 两种计算模型 map 和 reduce
+
+map阶段：负责将任务分解，即把复杂的任务分解成若干个“简单的任务”来并行处理，但前提是这些任务没有必然的依赖关系，可以单独执行任务
+
+reduce阶段：负责将任务合并，即把Map阶段的结果进行全局汇总
+
+<img src="./Hadoop期末复习.assets/image-20241228181717036.png" alt="image-20241228181717036" style="zoom: 50%;" />
 
 4.inputformat 切片机制 数据读取方式
 
+<img src="./Hadoop期末复习.assets/image-20241228182022422.png" alt="image-20241228182022422" style="zoom:50%;" />
+
+数据读取方式：
+
+针对不同数据类型，FileInputFormat 接口的实现类有 TextInputFormat、 KeyValueTextInputFormat、 NLineInputFormat、 CombineTextInputFormat 和自定义 InputFormat 等。
+
+`TextInputFormat` 是默认的 FileInputFormat 实现类。按行读取每条记录。 键是存储该行在整个文件中的起始字节偏移量， LongWritable 类型。值是这行的内容，不包括任何行终止符（换行符和回车符）， Text 类 型。
+
+`CombineTextInputFormat`，框架默认的 TextInputFormat 切片机制是对任务按文件规划切片， 不管文件多小， 都会是一个单独的切片， 都会交给一个 MapTask， 这样如果有大量小文件， 就会产生大量的MapTask， 处理效率极其低下。CombineTextInputFormat 用于小文件过多的场景， 它可以将多个小文件从逻辑上规划到一个切片中， 这 样， 多个小文件就可以交给一个 MapTask 处理。
+
 5.mapper maptask 数量与什么有关
 
-6.==(编程题会出30分，答题规范先思路再代码) == shuffle 环形缓冲区 100M 阈值80% 溢写磁盘（一个MT会有多个溢写文件，合并成一个中间结果）
-	分区partitioner 排序comparable 合并（三者有一个在写代码时可选）combiner
-	思路：分区
+MapTask 的数量是由切片的个数决定，切片的个数由（1）输入文件的数量、大小 （2）切片规则（按行、按文件的规则）决定。
+
+
+
+
+
+
+
+6.==(编程题会出30分，答题规范先思路再代码) == 
+
+shuffle 环形缓冲区 100M 阈值80% 溢写磁盘（一个MT（MapTask）会有多个溢写文件，合并成一个中间结果）
+
+> Map 方法之后， Reduce 方法之前的数据处理过程称之为 Shuffle 。
+
+Shuffle过程为：
+
+（1）Partition分区
+
+（2）WritableComparable 排序 （WritableComparator类，处理key为基础类型的排序）
+
+- 排序是MapReduce框架中最重要的操作之一
+- MapTask和ReduceTask均会对数据按照key进行排序。 该操作属于Hadoop的默认行为。 任何应用程序中的 数据均会被排序， 而不管逻辑上是否需要。
+- ==默认排序是按照字典顺序排序==， 且是快速排序。
+- <font color='red'>（重点）</font>对于MapTask， 它会将处理的结果暂时放到环形缓冲区中， 当==环形缓冲区==使用率达到一定阈值（==80%==）后， 再对缓冲区中的数据进行一次快速排序， 并将这些有序数据溢写到磁盘上， 而当数据处理完毕后， 它会对磁盘上所有文件进行归并排序。
+- 对于ReduceTask，它从每个MapTask上远程拷贝相应的数据文件，如果文件大小超过一定阈值， 则溢写磁盘 上， 否则存储在内存中。如果磁盘上文件数目达到一定阈值，则进行一次归并排序以生成一个更大文件；如 果内存中文件大小或者数目超过一定阈值，则进行一次合并后将数据溢写到磁盘上。当所有数据拷贝完毕 后， ReduceTask统一对内存和磁盘上的所有数据进行一次归并排序
+- 排序分类
+	- 部分排序 MapReduce根据输入记录的键对数据集排序。 保证输出的每个文件内部有序。 
+	- 全排序 最终输出结果只有一个文件， 且文件内部有序。 实现方式是只设置一个ReduceTask。 但该方法在处理大型 文件时效率极低， 因为一台机器处理所有文件， 完全丧失了MapReduce所提供的并行架构。 
+	- 辅助排序： （ GroupingComparator分组） 在Reduce端对key进行分组。应用于：在接收的key为bean对象时，想让一个或几个字段相同（全部字段比 较不相同）的key进入到同一个reduce方法时，可以采用分组排序。 
+	- 二次排序 在自定义排序过程中，如果compareTo中的判断条件为两个即为二次排序。
+
+bean 对象==做为 key 传输，需要实现 WritableComparable 接口==重写 compareTo 方法， 就可以实现排序。
+
+```java  :collapsed-lines=1
+public class FlowBean  implements WritableComparable<FlowBean>{
+    
+    private long upFlow;
+	private long downFlow;
+	private long sumFlow;
+    
+    
+    //一定要无参构造器，反射会调用
+    public FlowBean(){}
+    
+    //...getter setter方法
+    
+    
+    //  序列化
+    @Override
+    public void write(DataOutput out) throws IOException {
+        // 记住顺序
+        out.writeLong(upFlow);
+        out.writeLong(downFlow);
+        out.writeLong(sumFlow);
+    }
+    
+    
+    // 反序列化
+    @Override
+    public void readFields(DataInput in) throws IOException {
+        // 依据序列化的顺序 进行反序列化
+        this.upFlow = in.readLong();
+        this.downFlow = in.readLong();
+        this.sumFlow = in.readLong();
+    }
+
+    
+    //格式化输出，文件最后的输出为该对象的toString格式输出
+    @Override
+    public String toString() {
+    return upFlow + "\t" + downFlow + "\t" + sumFlow;
+    }
+    
+    @Override
+    public int compareTo(FlowBean o) {
+        //按照总流量比较,倒序排列
+        if(this.sumFlow > o.sumFlow){
+        return -1;
+        }else if(this.sumFlow < o.sumFlow){
+        return 1;
+        }else {
+        return 0;
+        }
+    }
+
+}
+```
+
+（3）Combiner 合并
+
+- Combiner是MR程序中Mapper和Reducer之外的一种组件。
+-  Combiner组件的父类就是Reducer。 
+- Combiner和Reducer的区别在于运行的位置 Combiner是在每一个MapTask所在的节点运行;
+-  Reducer是接收全局所有Mapper的输出结果；
+-  Combiner的意义就是对每一个MapTask的输出进行局部汇总， 以减小网络传输量。 
+- Combiner能够应用的前提是不能影响最终的业务逻辑， 而且， Combiner的输出kv应该跟Reducer的输入kv 类型要对应起来。
+
+简单来说。combiner就是为了让数据从内存到磁盘时，尽量减少IO次数，以提高效率。
+
+注意：平均值的统计不适合使用combiner，求和时，推荐
+
+- 自定义 Combiner 实现步骤 自定义一个 Combiner 继承 Reducer，重写 Reduce 方法 。 在 Job 驱动类中设置：`job.setCombinerClass(XXXCombiner.class);`
+
+
+
+
 
 7.renducer reducetask 数量与什么有关
 
+```java
+//大于1  小于 getPartition次数则抛出异常， 等于1 无论分区多少都是在一个文件里
+job.setNumReduceTasks(5);// 1  <  reducerTask  <  getPartitioner次数
+```
 
+- 用户配置：job.setNumReduceTasks(0)
+- **输入数据的分区数**：Reduce任务的输入来自于Map任务的输出，而Map任务的输出会根据用户指定的分区函数将数据划分为不同的分区。如果输入数据被划分为更多的分区，那么每个Reduce任务将会处理更少的数据，从而提高了并行度
+- **Reduce任务的处理能力**：指的是Reduce任务所在节点的计算资源。如果Reduce任务所在的节点具有更多的CPU核心、内存和网络带宽等资源，那么它可以同时处理更多的数据，从而增加并行度。
+- **数据倾斜**：在实际的数据处理中，可能会出现数据倾斜的情况，即某些数据分区的大小远远大于其他分区。为了避免某些Reduce任务成为性能瓶颈，可以通过增加Reduce任务的数量来缓解数据倾斜问题，提高整体的并行度。
 
 8.outputformat 输出 DBWritable --》 类似sqoop框架 封装opf
 
+- 默认输出格式TextOutputFormat，例如输出数据到MySQL/HBase/Elasticsearch等存储框架中。
+
+`DBWritable`是一个接口，它允许Hadoop MapReduce作业直接与数据库进行交互，而不需要像Sqoop那样需要一个中间的数据传输过程。
 
 
-9.代码：
-	三个类 Mapper（继承，重写map，输入输出泛型） Reducer（继承，重写reduce，输入输出泛型） Driver（7-8步骤）
+
+
+
+9.代码：三个类 Mapper（继承，重写map，输入输出泛型） Reducer（继承，重写reduce，输入输出泛型） Driver（7-8步骤）
+
+```java  :collapsed-lines=1
+定义输入输出
+Mapper泛型依次为 输入值key偏移量，输入值value（默认按行读取的值），输出key值，输出value值
+map方法的参数依次为偏移量，每行数据，上下文（设置输出值key和value）
+map的任务是对数据处理，需求是计算总共的word的出现次数，这里简单处理只出现一次
+
+
+public class WordCountMapper extends  Mapper<LongWritable,Text,Text,IntWritable>{
+
+		private IntWritable outV  =  new IntWritable(1);
+	
+		private  Text  outK =  new Text();
+		
+		public void map(LongWritable key,Text line,Context context){
+			String[]  words = 	line.toString().split(" ")
+			for(String word:words){
+			  outK.set(word)
+			  context.write(outK,outV);
+			}	
+		}
+}
+
+//输入输出 
+//泛型为 map阶段的输出<Text,IntWritable>   
+//reduce阶段输出为单词和单词出现次数所以也为<Text,IntWritable>
+//reduce接受的是map阶段的所有key，value为这些key的值的集合 =>  <Text,Iterable<IntWritable>>
+public class WordCountReducer extends Reducer<Text,IntWritable,Text,IntWritable>{
+    
+   private IntWritable  outV = new IntWritable();
+    
+    public void  map(Text word,Iterable<IntWritable> values,Context context){
+     	int num = 0;
+        
+        for(IntWritable value : values){
+           	 num += value.get();
+        }
+        outV.set(num);
+          context.write(word,outV);        
+    }
+}
+
+
+
+public  class WordCountDriver  {
+    
+    public  static void  main(String[] args){
+        //配置类
+        Configuration  config = new Configuration();
+        
+        //job
+        Job job = Job.getInstance(config);
+        
+        //设置该类为启动类
+       	job.setJarByClass(WordCountDriver.class);
+        //Mapper类
+        job.setMapperClass(WordCountMapper.class);
+        //Reducer类
+        job.setReducerClass(WordCountReducer.class);
+		//Map阶段的输入Key
+        job.setMapOutPutKeyClass(Text.class):
+        
+        //Map阶段的输入Value
+        job.setMapOutPutValueClass(IntWritable.class);
+        
+        // （可选） job.setPartitionerClass(WordCountPartitioner.class);
+    	//（可选） job.setCombinerClass(WordCountCombiner.class);
+        //（可选，设置分区则要设置） job.setNumReduceTasks(4);
+
+        //总体的输入Key
+        job.setOutputKeyClass(Text.class);
+        //总体的输入Value
+        job.setOUtputValueClass(IntWritable.class);
+       	
+        //输入和输出路径
+        FileInputFormat.setInputPaths(job,new Path("datas/words.txt"));
+        FileOutputFormat.setOutputPaths(job,new Path("output01"));
+        
+        //提交
+        boolean b =  job.waitForCompletion(job);
+        
+        System.exit(b?0:1);
+        
+    }
+    
+}
+```
 
 
 
 ## Yarn
+
+> Yarn（Yet Another Resource Negotiator）是Hadoop 2.0中的资源管理器，它可为上层应用提供统一的资源管理和调度。
 
 1.mesos 是什么
 
@@ -661,7 +922,7 @@ Zookeeper 是一个开源的分布式的，为分布式框架提供协调服务�
 
 ## sqoop
 
-> 是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql...)间进行数据的传递，可以将一个关系型数据库（例如 ： MySQL ,Oracle ,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。
+> Sqoop是一款开源的数据导入导出工具，主要用于在Hadoop与传统的数据库间进行数据的转换。
 
 1. 封装了outputformat
 
@@ -763,8 +1024,8 @@ SELECT * FROM your_table_name LIMIT 10; -- 查询目标表的前10条数据
 
 详细查看[Azkaban实战一节](https://www.cnblogs.com/liugp/p/16273966.html)
 
-
 ## 题型
+
 选择10 x2 
 填空10 x 2
 简答 6 x 5
@@ -772,3 +1033,4 @@ SELECT * FROM your_table_name LIMIT 10; -- 查询目标表的前10条数据
 
 
 ​	
+
