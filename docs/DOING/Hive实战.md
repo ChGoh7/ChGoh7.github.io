@@ -515,9 +515,7 @@ student_external外部表的数据是否还存在？
 
 发现在/user/hive/warehouse/student_external路径下，依然存在表数据！得到结论：
 
-**删除内部表会直接删除元数据（metadata）及存储数据；删除外部表仅仅会删除元数据，HDFS上的文件并不会被删除**
-
-
+<font color='red'>删除内部表会直接删除元数据（metadata）及存储数据；删除外部表仅仅会删除元数据，HDFS上的文件并不会被删除，但truncate命令会删除这两者全部数据</font>
 
 #### **内部表和外部表的区别：**
 
@@ -525,7 +523,7 @@ student_external外部表的数据是否还存在？
 
 **删除内部表会直接删除元数据（metadata）及存储数据；删除外部表仅仅会删除元数据，HDFS上的文件并不会被删除；**
 
-**对内部表的修改会将修改直接同步给元数据，而对外部表的表结构和分区进行修改，则需要修复（MSCK REPAIR TABLE table_name;）**
+**对内部表的修改会将修改直接同步给元数据，而<font color='red'>对外部表的表结构和分区进行修改，则需要修复</font>（MSCK REPAIR TABLE table_name;）**
 
 
 
@@ -575,7 +573,7 @@ stored as textfile;
 
 
 
-> 注意：('EXTERNAL'='TRUE')和('EXTERNAL'='FALSE')为固定写法，区分大小写
+> 注意：('EXTERNAL'='TRUE')和('EXTERNAL'='FALSE')为固定写法，==区分大小写==
 
 
 
@@ -600,7 +598,7 @@ stored as textfile;
 （1）更新列
 
 ```sql
-ALTER TABLE table_name **CHANGE** [COLUMN] col_old_name col_new_name 
+ALTER TABLE table_name CHANGE [COLUMN] col_old_name col_new_name 
 
 column_type [COMMENT col_comment] [FIRST|AFTER column_name]
 ```
@@ -608,12 +606,12 @@ column_type [COMMENT col_comment] [FIRST|AFTER column_name]
 （2）增加和替换列
 
 ```sql
-ALTER TABLE table_name **ADD|REPLACE** COLUMNS (col_name data_type [COMMENT 
+ALTER TABLE table_name ADD|REPLACE COLUMNS (col_name data_type [COMMENT 
 
 col_comment], ...) 
 ```
 
-> 注：ADD 是代表新增一字段，字段位置在所有列后面(partition列前)，REPLACE 则是表示替换表中所有字段。
+> 注：ADD 是代表新增一字段，字段位置在所有列后面(partition列前)，REPLACE 则是表示替换表中所有字段。 
 
 
 
@@ -703,7 +701,7 @@ hive (work_local)> desc dept;
 
 insert overwrite local directory '/opt/datas/export' select * from studentset;
 
-### 作业
+### ==作业==
 
 1.创建新数据库work_hdfs，指定其位置存放在HDFS上：/work_database/work_hdfs.db
 
@@ -754,7 +752,9 @@ load data inpath '/workdata/dept.txt' into table work_hdfs.dept;
 
 3.创建完毕后，使用相关命令查看emp表和dept表的详细信息。
 
+`desc extended emp`
 
+`desc  extended dept`
 
 4.在数据库work_hdfs再创建一个外部表dept_hdfs_external，通过location来指定数据的加载路径，
 
@@ -770,6 +770,8 @@ location '/dept_data/';
 ```
 
 数据来源的HDFS路径为：/dept_data/dept.txt，打印输出外部表dept_hdfs_external的表数据来源完整路径。 
+
+`desc formatted dept_hdfs_external`
 
 5.修改emp表名为emp_external，修改dept表名为dept_managed
 
@@ -847,7 +849,7 @@ FROM table_reference
 [LIMIT number]
 ```
 
-#### 全表和特定列查询
+#### ==全表和特定列查询==
 
 SQL单表查询中关键字的优先级==(很重要)==：
 
@@ -872,6 +874,8 @@ SELECT 字段1,字段2... FROM 表名
 注意这里where条件使用的是原始表中的字段进行过滤，；然后再进行分组操作，执行group by操作，分组完毕后使用having关键字对分组后的结果进行过滤，注意这里和where条件过滤不同，这里一般是对聚合函数进行过滤。
 
 执行完having子句后，接下来是去显示我们的字段，例如要求查询的字段1，字段2，字段3等。在这一步，我们是可以给字段改名称的，因为后面order by有可能根据这个字段进行排序，如果原始名称比较长，那么排序的时候，写的SQL语句比较臃肿。接下来执行order by子句，最后是执行limit操作。
+
+
 
 综上所述，我们来总结下这几个关键字的执行顺序、：
 
@@ -937,7 +941,7 @@ A%B  A 对 B 取余
 A&B  A 和 B 按位取与
 
 A|B    A 和 B 按位取或
-
+ 
 A^B   A 和 B 按位取异或
 
 ~A   A 按位取反
@@ -947,7 +951,7 @@ A^B   A 和 B 按位取异或
 
 hive (default)>; select sal +1 from emp
 
-#### 常用函数
+#### 常用函数（函数中的每个字段应该是独一无二的，没有和其他重复的）
 
 1）查询总共有多少个工作
 
@@ -995,7 +999,7 @@ hive (default)> select ename,job,sal as emp_sal from emp where sal > 2000;
 
 
 
-注意：where 子句中不能使用字段别名,要使用表中的原始字段，
+<font color='red'>注意：where 子句中不能使用字段别名,要使用表中的原始字段，</font>
 
 比如如下的测试就会报错：
 
@@ -1031,7 +1035,7 @@ hive (default)> select ename,sal,comm from emp where comm is null;
 
 hive (default)> select ename,job,sal from emp where sal IN (1500, 3000,5000);
 
-####  **Like 和 RLike**
+####  **Like 和 ==RLike==**
 
 1）使用 LIKE 运算选择类似的值
 
@@ -1133,15 +1137,17 @@ select e.deptno, e.job, max(e.sal) max_sal from emp_external e group by e.deptno
 
 select * from emp group by 
 
-列出每个部门薪水最高的前两名人员名称以及薪水
+==列出每个部门薪水最高的前两名人员名称以及薪水==
 
-select ename,sal
+`select ename,sal`
 
-from
+`from`
 
-(select ename,sal,deptno,row_number() over(partition by deptno order by sal desc) as rk from emp_external) as t where rk<=2;
+`(select ename,sal,deptno,row_number() over(partition by deptno order by sal desc) as rk from emp_external) as t where rk<=2;`
 
+​    
 
+   
 
 select * from emp e left join dept d on e.deptno = d.deptno where d.dname = 'SALES';
 
@@ -1153,7 +1159,7 @@ select * from emp e left join dept d on e.deptno = d.deptno where d.dname = 'SAL
 
 按照员工薪水的 2 倍排序
 
-hive (default)> select ename, sal*2 twosal from emp order by twosal;
+select ename, sal*2 twosal from emp order by twosal;
 
 
 
@@ -1161,9 +1167,9 @@ hive (default)> select ename, sal*2 twosal from emp order by twosal;
 
 
 
-按照部门和工资升序排序
+按照部门和工资==升序排序（默认是asc）== 
 
-hive (default)> select ename, deptno, sal from emp order by deptno, sal;
+select ename, deptno, sal from emp order by deptno, sal;
 
 
 
@@ -1173,7 +1179,7 @@ hive (default)> select ename, deptno, sal from emp order by deptno, sal;
 
 1）having 与 where 不同点
 
-==**（1）where 后面不能写分组函数，而 having 后面可以使用分组函数。**==
+==**（1）<font color='red'>where 后面不能写分组函数</font>，而 having 后面可以使用分组函数。**==
 
 ==**（2）having 只用于 group by 分组统计语句。**==
 
@@ -1181,11 +1187,13 @@ hive (default)> select ename, deptno, sal from emp order by deptno, sal;
 
 求每个部门的平均工资
 
-hive (default)> select deptno, avg(sal) from emp group by deptno;
+select deptno, avg(sal) from emp group by deptno;
 
 求平均薪水大于 2000 的部门
 
-### 作业
+SELECT  dept,avg(sal)  avgSal   from emp group by dept  having avgSal  > 2000
+
+### ==作业==
 
 1.查询各种工作的最低薪资待遇
 
@@ -1233,7 +1241,7 @@ select deptno, avg(sal) manager_avg_sal from emp where job='MANAGER' group by de
 
 
 
-nvl函数：空值转换函数
+==nvl函数：空值转换函数==
 
 
 
@@ -1323,7 +1331,7 @@ select e.ename,e.empno,e.sal,e.deptno,d.dname from emp e join dept d on e.deptno
 
 #### **内连接****：**
 
-内连接：只有进行连接的两个表中都存在与连接条件相匹配的数据才会被保留下来。
+==内连接：只有进行连接的两个表中都存在与连接条件相匹配的数据才会被保留下来。==
 
 
 
@@ -1337,9 +1345,9 @@ on e.deptno = d.deptno;
 
 #### **左外连接****：**
 
+==允许左边为null==
 
-
-左外连接：左表的所有记录都会被保留下来，没有匹配到的，以null显示:
+==左外连接：左表的所有记录都会被保留下来，没有匹配到的，以null显示:==
 
 
 
@@ -1349,7 +1357,9 @@ on e.deptno = d.deptno;
 
 #### **右外连接****：**
 
-右外连接：右表的所有记录都会被保留下来，没有匹配到的，以null显示：
+==允许右边为null==
+
+==右外连接：右表的所有记录都会被保留下来，没有匹配到的，以null显示：==
 
 
 
@@ -1379,7 +1389,7 @@ dept d on e.deptno = d.deptno;
 
 #### **全局排序（Order By）****：**
 
-Order By：全局排序，只有一个 Reducer 
+==Order By：全局排序，只有一个 Reducer== 
 
 1）使用 ORDER BY 子句排序
 
@@ -1409,9 +1419,9 @@ Sort By：对于大规模的数据集 order by 的效率非常低。在很多情
 
 
 
-Sort by 为每个 reducer 产生一个排序文件。每个 Reducer 内部进行排序，对全局结果集
+==Sort by 为每个 reducer 产生一个排序文件。每个 Reducer 内部进行排序，对全局结果集==
 
-来说不是排序。
+==来说不是排序。==
 
 1）设置 reduce 个数
 
@@ -1457,7 +1467,7 @@ insert overwrite local directory '/opt/datas/distribuesult' select deptno,ename,
 
 当 distribute by 和 sorts by 字段相同时，可以使用 cluster by 方式。
 
-cluster by 除了具有 distribute by 的功能外还兼具 sort by 的功能。但是排序只能是升序
+cluster by 除了具有 distribute by 的功能外还兼具 sort by 的功能。但是排<font color='red'>序只能是升序</font>
 
 排序，不能指定排序规则为 ASC 或者 DESC。 
 
@@ -1501,7 +1511,7 @@ insert overwrite local directory '/opt/datas/distribute-result' select deptno,en
 
 
 
-4.cluster by：当distribute by 和sort by 修饰同一个字段的时候可以直接使用
+4.cluster by：当distribute by 和sort by ==修饰同一个字段==的时候可以直接使用
 
 
 
@@ -1509,7 +1519,7 @@ insert overwrite local directory '/opt/datas/clusterby-result' select deptno,ena
 
 
 
-### 作业
+### ==作业==
 
 1.查询出所有职工的编号，姓名，以及其上级的姓名。
 
@@ -1519,14 +1529,11 @@ select a.empno,a.ename,b.ename from
 left join
 (select ename,empno from emp) as b
 on a.mgr=b.empno;
-
 ```
 
 2.查询入职时间早于其上级的所有员工。
 
 备注：入职时间的比较可以直接用类似的判断： a.hiredate>b.hiredate
-
-
 
 ```sql
 select worker.ename,boss.ename
@@ -1536,12 +1543,9 @@ right join
 (select mgr,ename,hiredate from emp) as worker
 on boss.empno=worker.mgr
 where boss.hiredate>worker.hiredate;
-
 ```
 
 3.查询出工作岗位为SALESMAN的员工姓名、工作岗位其所在部门名称。
-
-
 
 ```sql
 select t1.ename,t1.job,t2.dname
@@ -1550,12 +1554,9 @@ from
 left join
 dept as t2
 on t1.deptno=t2.deptno;
-
 ```
 
 4.查询出工资待遇高于公司平均薪资待遇的员工信息
-
-
 
 ```sql
 select t1.ename,t1.sal,t2.avg_sal
@@ -1566,6 +1567,7 @@ join
 on t1.cid=t2.cid
 where t1.sal>t2.avg_sal;
 
+select t1.*,t2.avg_sal from  emp t1,(select avg(sal) as avg_sal from emp) t2 where t1.sal > t2.avg_sal
 ```
 
 5.查询出与'ALLEN'工作职位相同的所有员工姓名。
@@ -1580,6 +1582,11 @@ on t1.cid=t2.cid
 where t1.job=t2.job and t1.ename!='ALLEN';
 
 
+
+
+```
+
+```sql
 select t1.ename
 from
 (select empno,ename,job from emp) as t1
@@ -1587,6 +1594,9 @@ join
 (select empno,job from emp where ename='ALLEN') as t2
 on t1.empno=t2.empno
 where t1.job=t2.job and t1.ename!='ALLEN';
+
+
+
 
 ```
 
@@ -1599,7 +1609,6 @@ join
 (select distinct sal from emp where DEPTNO = 30) t2
 on t1.sal=t2.sal
 where t1.deptno!=30;
-
 ```
 
 
@@ -1613,8 +1622,9 @@ left join
 (select max(sal) as max_sal,1 as cid from emp where deptno=30) as t2
 on t1.cid=t2.cid
 where t1.sal>t2.max_sal;
-
 ```
+
+
 
 8．查询每个部门的员工数量、平均薪资待遇以及平均服务时长。
 
@@ -1623,14 +1633,6 @@ where t1.sal>t2.max_sal;
 这里的round表示对于平均服务时长，结果仅取2位小数即可！
 
 ```sql
-select t1.deptno,t1.people,t1.avg_sal,t2.avg_time
-from
-(select count(*) people,avg(sal) avg_sal, round(avg(datediff(current_date,hiredate)),2) avg_time,deptno from emp group by deptno) as t1
-left join
-(select round(avg(datediff(current_date,hiredate)),2) as avg_time,deptno from emp group by deptno) as t2
-on t1.deptno=t2.deptno;
-
-
 select deptno, count(*) people,avg(sal) avg_sal, round(avg(datediff(current_date,hiredate)),2) avg_time
 from emp group by deptno
 ```
@@ -1721,7 +1723,7 @@ create table t_user_province (id int, name string,age int) partitioned by (provi
 
 --双分区表，按省份和市分区
 
---分区字段之间是一种递进的关系 因此要注意分区字段的顺序 谁在前在后
+--<font color='red'>分区字段之间是一种递进的关系 因此要注意分区字段的顺序 谁在前在后</font>
 
 drop table if exists t_user_province_city;
 
@@ -1787,7 +1789,7 @@ select * from t_user_province_city_county where province='zhejiang' and city='ha
 
 --分桶表建表语句
 
-```
+```sql
 CREATE [EXTERNAL] TABLE [db_name.]table_name
 
 [(col_name data_type, ...)]
@@ -1817,7 +1819,7 @@ CLUSTERED BY(state) INTO 5 BUCKETS;
 
 ```
 
-> 分桶的字段一定要是表中已经存在的字段，这里是根据州来进行分桶
+> <font color='red'>分桶的字段一定要是表中已经存在的字段，这里是根据州来进行分桶</font>
 
 --根据state州分为5桶 每个分桶内部根据cases确诊病例数倒序排序
 
@@ -1835,9 +1837,9 @@ CREATE TABLE t_usa_covid19_bucket_sort(
 
    deaths int)
 
-CLUSTERED BY(state)
+`CLUSTERED BY(state)`
 
-sorted by (cases desc) INTO 5 BUCKETS;
+`sorted by (cases desc) INTO 5 BUCKETS;`
 
 
 
@@ -1927,4 +1929,142 @@ select * from t_usa_covid19_bucket where state="New York";
 
 
 
-## 函数
+## <font color='red'>函数</font>
+
+使用<font color='red'>show functions</font>查看当下可用的所有函数；
+
+通过**<font color='red'>describe function extended funcname</font>**来查看函数的使用方式。
+
+Hive的函数分为两大类：<font color='red'>**内置函数**</font>（Built-in Functions）、<font color='red'>用户定义函数UDF</font>（User-Defined Functions）：
+
+内置函数可分为：数值类型函数、日期类型函数、字符串类型函数、集合函数、条件函数等；
+
+<font color='red'>根据函数输入输出的行数：</font>
+
+**UDF**（User-Defined-Function）<font color='red'>普通函数</font>，一进一出
+
+<img src="./Hive实战.assets/image-20241229184952798.png" alt="image-20241229184952798" style="zoom: 67%;" />
+
+**UDAF**（User-Defined Aggregation Function）<font color='red'>聚合函数</font>，多进一出
+
+<img src="./Hive实战.assets/image-20241229185011260.png" alt="image-20241229185011260" style="zoom: 67%;" />
+
+
+
+
+
+
+
+**UDTF**（User-Defined Table-Generating Functions）<font color='red'>表生成函数</font>，一进多出
+
+![image-20241229185316316](./Hive实战.assets/image-20241229185316316.png)
+
+lexplode接收<font color='red'>map、array</font>font>类型的数据作为输入，然后把输入数据中的<font color='red'>每个元素拆开变成一行数据</font>，一个元素一行。
+
+lexplode执行效果正好满足于输入<font color='red'>一行输出多行</font>，所有叫做UDTF函数。
+
+explode(array) 将array里的每个元素生成一行；
+
+explode(map)  将map里的每一对元素作为一行，其中key为一列，value为一列；
+
+
+
+<font color='red'>NBA总冠军球队名单分析</font>
+
+<img src="./Hive实战.assets/image-20241229185629824.png" alt="image-20241229185629824" style="zoom: 67%;" />
+
+![image-20241229190100230](./Hive实战.assets/image-20241229190100230.png)
+
+
+
+![image-20241229190109037](./Hive实战.assets/image-20241229190109037.png)
+
+UDTF语法限制
+
+1.<font color='red'>explode函数属于UDTF表生成函数</font>，explode执行返回的结果可以理解为一张虚拟的表，其数据来源于源表；
+
+2.在select中只查询源表数据没有问题，只查询explode生成的虚拟表数据也没问题，但是<font color='red'>不能在只查询源表的时候，既想返回源表字段又想返回explode生成的虚拟表字段</font>；通俗点讲，有两张表，不能只查询一张表但是又想返回分别属于两张表的字段；
+
+![image-20241229190244056](./Hive实战.assets/image-20241229190244056.png)
+
+
+
+UDTF语法限制解决
+
+1.从SQL层面上来说上述问题的解决方案是：对两张表进行join关联查询;
+
+2.Hive专门提供了语法<font color='red'>lateral View侧视图</font>，专门用于搭配explode这样的UDTF函数，以满足上述需要。
+
+`a  lateral view  explode(column2_name) [new_table_name]  as  [explode_column];`
+
+```sql
+SELECT  [column_name],column3_name
+FROM [table_name]  a  lateral view  explode(column2_name) [new_table_name]  as  column3_name;
+```
+
+![image-20241229190549011](./Hive实战.assets/image-20241229190549011.png)
+
+总结：
+
+Lateral View是一种特殊的语法，主要搭配UDTF类型函数一起使用，用于解决UDTF函数的一些查询限制的问题。
+
+一般<font color='red'>只要使用UDTF，就会固定搭配lateral view使用。</font>
+
+
+
+
+
+l<font color='red'>将UDTF的结果构建成一个类似于视图的表，然后将原表中的每一行和UDTF函数输出的每一行进行连接，生成一张新的虚拟表</font>。这样就避免了UDTF的使用限制问题。
+
+l使用lateral view时也<font color='red'>可以对UDTF产生的记录设置字段名称</font>，产生的字段可以用于group by、order by 、limit等语句中，不需要再单独嵌套一层子查询。
+
+![image-20241229191326193](./Hive实战.assets/image-20241229191326193.png)
+
+![image-20241229191846010](./Hive实战.assets/image-20241229191846010.png)
+
+**场景**5：聚合参数不支持嵌套聚合函数
+`select *avg*(*count*(***)) from student;`
+
+​	
+
+配合distinct关键字去重聚合--此场景下，会编译期间会自动设置只启动一个reduce task处理数据  可能造成数据拥堵
+
+select` count(distinct sex)` as cnt1 from student;
+
+--可以先去重 在聚合 通过子查询完成--因为先执行distinct的时候 可以使用多个reducetask来跑数据
+
+select count(*) as gender_uni_cntfrom (select distinct sex from student) a;
+
+![image-20241229192722325](./Hive实战.assets/image-20241229192722325.png)
+
+## 窗口函数
+
+<font color='red'>窗口函数（Window functions）</font>也叫做开窗函数、OLAP函数，其最大特点是：<font color='red'>输入值是从SELECT语句的结果集中的一行或多行的“窗口”中获取的。</font>
+
+l如果函数具<font color='red'>有OVER子句，则它是窗口函数。</font>
+
+l窗口函数可以简单地解释为类似于聚合函数的计算函数，但是通过GROUP BY子句组合的常规聚合会隐藏正在聚合的各个行，最终输出一行，窗口函数聚合后还可以访问当中的各个行，并且可以将这些行中的某些属性添加到结果集中。
+
+<img src="./Hive实战.assets/image-20241229193803314.png" alt="image-20241229193803314" style="zoom:67%;" />
+
+
+
+
+
+<img src="./Hive实战.assets/image-20241229194301977.png" alt="image-20241229194301977" style="zoom:67%;" />
+
+![image-20241229194434979](./Hive实战.assets/image-20241229194434979.png)
+
+
+
+
+
+![image-20241229195849970](./Hive实战.assets/image-20241229195849970.png)
+
+
+
+
+
+![image-20241229195838269](./Hive实战.assets/image-20241229195838269.png)
+
+JSON数据格式是数据存储及数据处理中最常见的结构化数据格式之一，很多场景下公司都会将数据<font color='red'>以JSON格式存储在HDFS中</font>，当构建数据仓库时，需要对JSON格式的数据进行处理和分析，那么就需要<font color='red'>在Hive中对JSON格式的数据进行解析读取</font>。

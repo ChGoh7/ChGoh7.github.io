@@ -41,7 +41,14 @@ https://zhuanlan.zhihu.com/p/111319675 （有兴趣可读）
 
 3.流程
 
-![image-20241227182114910](./Hadoop期末复习.assets/image-20241227182114910.png)
+1. 产品提需求，统计各地实时数据，热门排行数据
+
+2. 搭建数据平台，分析数据指标
+3. 数据可视化，开发数据报表，邮件发送，大屏幕展示
+
+
+
+<img src="./Hadoop期末复习.assets/image-20241227182114910.png" alt="image-20241227182114910" style="zoom: 50%;" />
 
 ## Hadoop
 
@@ -67,9 +74,10 @@ BigTable --> HBase
 
 Hadoop3.x备课在组成上没有变化。 3版本和2版本在某些方面有差异，具体表现为：
 
-  	**支持多个NameNode**：Hadoop 3.x支持两个以上的NameNode，提高了群集的容错能力。
+支持多个NameNode：Hadoop 3.x支持两个以上的NameNode，提高了群集的容错能力。
+DataNode内部负载均衡：Hadoop 3.x在DataNode内部添加了负载均衡功能，以优化数据存储和访问性能。
 
-​	**DataNode内部负载均衡**：Hadoop 3.x在DataNode内部添加了负载均衡功能，以优化数据存储和访问性能。
+
 
 4. 运行模式：本地、完全分布式\伪分布式
 
@@ -782,7 +790,7 @@ Mesos是一个开源的资源管理系统，可以对集群中的资源做弹性
 
 ![image-20241228005136580](./Hadoop期末复习.assets/image-20241228005136580.png)
 
-4. （必考）调度器：
+4. <font color='red'>（必考）调度器：</font>
 
  Hadoop 作业调度器主要有三种： `FIFO`、 `容量（Capacity Scheduler）` 和`公平（FairScheduler）`。 
 
